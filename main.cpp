@@ -14,6 +14,7 @@ typedef const int cint;
 int main()
 {
 
+    const string = "coucou";
 
     return 0;
 }
