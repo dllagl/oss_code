@@ -23,20 +23,23 @@ typedef boost::array<double,4> state_type;
 
 // main parameters
 cdouble doping_ratio_sample = 1.;
-cdouble quality_factor = 2000.;
-cdouble pump_power = 10. * 1.e7;
+cdouble quality_factor      = 2000.;
+cdouble pump_power          = 10. * 1.e7;
+
+const string output_path = "test.txt";
+ofstream ofile(output_path.c_str(), ios::app);
 
 
 
 // parameters of BSBCz
-cdouble molar_mass = 689.e-3;
-cdouble lambda_abs = 405.e-9;
+cdouble molar_mass  = 689.e-3;
+cdouble lambda_abs  = 405.e-9;
 cdouble lambda_fluo = 480.e-9;
 
 cdouble tau_f = 1.28e-9;
 cdouble tau_t = 175.e-6;
 
-cdouble sigma_em = 2.8e-20;
+cdouble sigma_em           = 2.8e-20;
 cdouble sigma_triplet_pump = 0.0;
 
 cdouble ksi = 0.9;
@@ -46,29 +49,36 @@ cdouble ksi = 0.9;
 cdouble mol_density = 1.15e-3;
 cdouble dye_density = (doping_ratio_sample * mol_density * AVOGRADRO) / molar_mass;
 cdouble sigma_abs_pump = 8.5e-21;
-cdouble neff = 1.7;
+cdouble neff           = 1.7;
 
 
 // photophysical interaction rates
-cdouble kisc = 6.e6;
-cdouble ksta = 8.e-11 * 1.e-6 * dye_density;
-cdouble kssa = 0.0 * 1.e-6 * dye_density;
-cdouble ktta = 0.0 * 1.e-6 * dye_density;
+cdouble kisc     = 6.e6;
+cdouble ksta     = 8.e-11 * 1.e-6 * dye_density;
+cdouble kssa     = 0.0 * 1.e-6 * dye_density;
+cdouble ktta     = 0.0 * 1.e-6 * dye_density;
 cdouble sigma_ta = 0.0;
 
 
 // parameters of the laser device
-cdouble gamma = 0.5;
-cdouble nu = SPEED_LIGHT / lambda_fluo;
-cdouble tau_cav = quality_factor / (2 * PI * nu);
+cdouble gama     = 0.5;
+cdouble nu        = SPEED_LIGHT / lambda_fluo;
+cdouble tau_cav   = quality_factor / (2 * PI * nu);
 cdouble pump_area = 4.5e-9;
-cdouble spont = PLANCK*SPEED_LIGHT*SPEED_LIGHT 
-                / (lambda_fluo*pow(pump_area,3./2.));
+cdouble spont     = PLANCK*SPEED_LIGHT*SPEED_LIGHT 
+                    / (lambda_fluo*pow(pump_area,3./2.));
 
 
 
 
-void system(const state_type &x, state_type &dxdt, double t)
+
+
+
+
+
+
+
+void ode_sys(const state_type &x, state_type &dxdt, double t)
 {
 
     // S0 
@@ -106,17 +116,24 @@ void system(const state_type &x, state_type &dxdt, double t)
 
     // photon density
     dxdt[3] =  (
-          ( (HC/neff) * dye_density * gamma * sigma_em * x[1] * (x[3] + spont) )
-        - ( (HC/neff) * dye_density * gamma * sigma_ta * x[2] * x[3] )
+          ( (SPEED_LIGHT/neff) * dye_density * gama * sigma_em * x[1] * (x[3] + spont) )
+        - ( (SPEED_LIGHT/neff) * dye_density * gama * sigma_ta * x[2] * x[3] )
         - ( x[3] / tau_cav )
     );
 }
 
 
+
+
+
+
+
+
+
+
+
 void write_output(const state_type &x, const double t)
 {
-    const string output_path = "test.txt";
-    ofstream ofile(output_path.c_str());
 
     ofile << t << '\t' 
           << x[0] << '\t' 
@@ -128,10 +145,16 @@ void write_output(const state_type &x, const double t)
 
 
 
+
+
+
+
+
+
 int main()
 {
 
     state_type x = {1., 0.0, 0.0, 0.0};
-
+    integrate(ode_sys,x,0.0,5.e-6,1.e-9,write_output);
     return 0;
 }
