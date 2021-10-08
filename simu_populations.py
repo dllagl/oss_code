@@ -8,14 +8,16 @@ import os
 
 
 # external files 
-import system                  as sys 
-import imp_param               as imp 
+import system     as sys 
+import imp_param  as imp 
 import simu_populations_solver as sv 
+import user_interface as ui
 
 
 
 def simu() : 
 
+    ui.simulation_start()
 
     # photophysical parameters importation
     const_molecule = imp.param_molecule()
@@ -36,7 +38,8 @@ def simu() :
 
 
     # output file to write the data on 
-    output_file_path = 'test.out'
+    ui.output_file_choice()
+    output_file_path = input('File path : ')
     if os.path.exists(output_file_path) : os.remove(output_file_path)
 
 
@@ -45,6 +48,11 @@ def simu() :
             const_pump[1],const_sample,const_molecule,const_rates,output_file_path)
 
 
+
+
+
+
+    ui.simulation_finished()    
     return 0
 
 
