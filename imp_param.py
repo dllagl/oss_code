@@ -2,8 +2,12 @@
 
 import numpy as np 
 
+
+
 # constants 
 AVOGADRO = 6.0221407e23
+
+
 
 # molecule intrinsic parameters
 molar_mass        = 339.44e-3  
@@ -19,6 +23,9 @@ sigma_T1T2_laser  = 0.0
 kSI               = 0.9
 
 
+
+
+
 # sample parameters 
 doping            = 1.0
 rho_matrix        = 1.15e3
@@ -28,6 +35,10 @@ thickness         = 17e-6
 alpha             = - np.log(1-absorption) / thickness
 sigma_abs_pump    = alpha/nbr_active_mol
 neff              = 1.7
+
+
+
+
 
 # photophysical rates 
 kisc              = 1e7
