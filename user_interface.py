@@ -78,9 +78,6 @@ def output_file_choice() :
     Relative path : ../folder/name.out
     Absolute path : ~/Documents/folder/name.out
 
-    Choose what is more convenient for you. It
-    will not change anything for the computation.
-
     If the file already exists, the previous 
     version will be permanently deleted
     ----------------------------------------------
