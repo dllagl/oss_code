@@ -1,7 +1,6 @@
 
 
-from numpy import linspace
-from math import log
+import numpy as np 
 
 
 
@@ -31,11 +30,11 @@ def param_molecule() :
     '''
 
     molar_mass        = 339.44e-3  
-    lambda_abs        = 450e-9
-    lambda_fluo       = 521e-9
-    tau_f             = 1e-9
-    tau_t             = 100e-6
-    sigma_em          = 1e-20
+    lambda_abs        = 408e-9
+    lambda_fluo       = 480e-9
+    tau_f             = 1.28e-9
+    tau_t             = 175e-6
+    sigma_em          = 2.8e-20
     sigma_S1S2_pump   = 0.0
     sigma_S1S2_laser  = 0.0
     sigma_T1T2_pump   = 0.0
@@ -74,13 +73,13 @@ def param_sample(molar_mass) :
     rho_matrix        = 1.15e3
     nbr_active_mol    = (doping*rho_matrix*AVOGADRO) / molar_mass
     absorption        = 0.8
-    thickness         = 17e-6
-    alpha             = - log(1-absorption) / thickness
+    thickness         = 1e-6
+    alpha             = - np.log(1-absorption) / thickness
     sigma_abs_pump    = alpha/nbr_active_mol
     neff              = 1.7
 
 
-    return [sigma_abs_pump,neff,nbr_active_mol]
+    return [doping, sigma_abs_pump,neff,nbr_active_mol]
 
 
 
@@ -126,6 +125,8 @@ def param_rates(nbr_dye_molecules) :
 
 
 
+
+# pump parameters
 def param_pump() : 
 
     '''
@@ -143,6 +144,13 @@ def param_pump() :
 
 
 
+
+
+
+
+
+
+# time parameters
 def param_time(integration_time) : 
 
     '''
@@ -151,7 +159,7 @@ def param_time(integration_time) :
     '''
 
     dt = 1e5
-    time_vec = linspace(0.0,integration_time, int(dt))
+    time_vec = np.linspace(0.0,integration_time, int(dt))
 
 
     return time_vec

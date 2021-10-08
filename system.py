@@ -16,8 +16,8 @@ def sys_equations(s, t, doping, Ip,
     '''
 
     # equations parameters
-    sigma_abs_p, n, N = param_sample
-    molar_mass,lambda_abs, lambda_fluo, tau_fluo,tau_triplet, sigma_em, sigma_S1S2_p,sigma_T1T2_p, kSI = param_molecule
+    doping,sigma_abs_p, n, N = param_sample
+    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI = param_molecule
     kISC, kSTA, kSSA, kTTA = param_interaction_rate
 
 
@@ -43,8 +43,8 @@ def sys_equations(s, t, doping, Ip,
     # S0 equation
     sdot[0] = ( 
             ( - sigma_abs_p * lambda_abs * Ip * s[0] / hc )
-            + ( s[1] / tau_fluo ) 
-            + ( s[2] / tau_triplet )
+            + ( s[1] / tau_f ) 
+            + ( s[2] / tau_t )
             + ( kSTA * s[1] * s[2] )
             + ( kTTA * s[2] * s[2] )
             + ( kSSA * s[1] * s[1] )
@@ -53,7 +53,7 @@ def sys_equations(s, t, doping, Ip,
     # S1 equation
     sdot[1] = (
             (sigma_abs_p * lambda_abs * Ip * s[0]) / hc
-            - ( s[1] * (1/tau_fluo + kISC) )
+            - ( s[1] * (1/tau_f + kISC) )
             - ( kSTA * s[1] * s[2] ) 
             + ( zeta * kTTA * s[2] * s[2] )
             - ( kSSA * s[1] * s[1] * (2- zeta) )
@@ -64,7 +64,7 @@ def sys_equations(s, t, doping, Ip,
     # T1 equation
     sdot[2] = (
             ( kISC * s[1] )
-            - ( s[2] / tau_triplet )
+            - ( s[2] / tau_t )
             + ( kSSA * s[1] * s[1] * (1-zeta) )
             - ( (1+zeta) * kTTA * s[2] * s[2] )
     )
