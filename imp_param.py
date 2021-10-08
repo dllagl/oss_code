@@ -6,7 +6,7 @@ import numpy as np
 AVOGADRO = 6.0221407e23
 
 # molecule intrinsic parameters
-molar_mass        = 339.44e-3
+molar_mass        = 339.44e-3  
 lambda_abd        = 450e-9
 lambda_fluo       = 521e-9
 tau_f             = 1e-9
@@ -30,7 +30,7 @@ sigma_abs_pump    = alpha/nbr_active_mol
 neff              = 1.7
 
 # photophysical rates 
-kisc = 1e7
-ksta = 1e-10 * 1e-6 * nbr_active_mol
-ktta = 0.0 * 1e-6 * nbr_active_mol
-kssa = 0.0 * 1e-6 * nbr_active_mol
+kisc              = 1e7
+ksta              = 1e-10 * 1e-6 * nbr_active_mol
+ktta              = 0.0 * 1e-6 * nbr_active_mol
+kssa              = 0.0 * 1e-6 * nbr_active_mol
