@@ -5,7 +5,7 @@ import numpy as np
 
 def sys_equations(s, t, doping, Ip,
                 param_sample,
-                param_bsbcz,
+                param_molecule,
                 param_interaction_rate) : 
 
     '''
@@ -17,7 +17,7 @@ def sys_equations(s, t, doping, Ip,
 
     # equations parameters
     sigma_abs_p, n, N = param_sample
-    molar_mass,lambda_abs, lambda_fluo, tau_fluo,tau_triplet, sigma_em, sigma_S1S2_p,sigma_T1T2_p, kSI = param_bsbcz
+    molar_mass,lambda_abs, lambda_fluo, tau_fluo,tau_triplet, sigma_em, sigma_S1S2_p,sigma_T1T2_p, kSI = param_molecule
     kISC, kSTA, kSSA, kTTA = param_interaction_rate
 
 
