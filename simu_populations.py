@@ -8,8 +8,9 @@ import os
 
 
 # external files 
-import system         as sys 
-import imp_param      as imp 
+import system                  as sys 
+import imp_param               as imp 
+import simu_populations_solver as sv 
 
 
 
@@ -40,17 +41,11 @@ def simu() :
 
 
 
-    # ode system integration 
-    sol = odeint(sys.sys_equations,init_pop,t,
-            args=(const_sample[0],const_pump[1],const_sample,const_molecule,const_rates)
-            )
+    sv.solver(odeint,sys.sys_equations,init_pop,t,const_sample[0],
+            const_pump[1],const_sample,const_molecule,const_rates,output_file_path)
 
-    ofile = open(output_file_path,'a+')
-    for ii in range(len(sol)) :
-        ofile.write('%.3e\t%.3e\t%.3e\n'
-        % (sol[ii,0],sol[ii,1],sol[ii,2])
-        )
-    ofile.close()
+
+    return 0
 
 
 
