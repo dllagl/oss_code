@@ -12,11 +12,26 @@ def welcome() :
     is pretty boring but it will get better afterwards
     Enjoy ! 
 
+    List of available simulations : 
+
+    1) Integrate a three level system of ODE for 
+    the populations S0,S1 and T1.
+    In this option, everything is fixed and the 
+    resulting populations are written with time 
+    on an unique output file.
+    
+    To costum parameters such as rates, time of 
+    integration and so on, go to imp_param.py.
+
     ----------------------------------------------
     ----------------------------------------------
     ''')
 
     return 0
+
+
+
+
 
 
 
@@ -40,6 +55,13 @@ def simulation_finished() :
     )
 
     return 0
+
+
+
+
+
+
+
 
 
 
