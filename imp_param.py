@@ -1,6 +1,8 @@
 
 
+from numpy import linspace
 from math import log
+
 
 
 
@@ -67,6 +69,7 @@ def param_sample(molar_mass) :
     alpha          : absorption coefficient (m-1)
     sigma_abs_pump : absorption cross section at the pump wavelength (m2) 
     '''
+    
     doping            = 1.0
     rho_matrix        = 1.15e3
     nbr_active_mol    = (doping*rho_matrix*AVOGADRO) / molar_mass
@@ -76,9 +79,8 @@ def param_sample(molar_mass) :
     sigma_abs_pump    = alpha/nbr_active_mol
     neff              = 1.7
 
-    arr = [sigma_abs_pump,neff,nbr_active_mol]
 
-    return arr
+    return [sigma_abs_pump,neff,nbr_active_mol]
 
 
 
@@ -113,6 +115,43 @@ def param_rates(nbr_dye_molecules) :
     ktta              = 0.0 * 1e-6 * nbr_dye_molecules
     kssa              = 0.0 * 1e-6 * nbr_dye_molecules
 
-    arr = [kisc,ksta,kssa,ktta]
 
-    return arr
+    return [kisc,ksta,kssa,ktta]
+
+
+
+
+
+
+
+
+
+def param_pump() : 
+
+    '''
+    excitation_time : integration time of the system (s)
+    pump fluence    : fluence of the pump (kW/cm2) * 1e7 (W/m2)
+    '''
+
+    excitation_time = 100e-6
+    pump_fluence    = 10 * 1e7
+
+
+    return [excitation_time,pump_fluence]
+
+
+
+
+
+def param_time(integration_time) : 
+
+    '''
+    dt : number of point per integration time step 
+    time_vec : time vector for ode solver
+    '''
+
+    dt = 1e5
+    time_vec = linspace(0.0,integration_time, int(dt))
+
+
+    return time_vec
