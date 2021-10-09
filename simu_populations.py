@@ -38,8 +38,8 @@ def simu() :
 
 
     # output file to write the data on 
-    ui.output_file_choice()
-    output_file_path = input('File path : ')
+    output_file_path = ui.output_file_choice()
+    # output_file_path = input('File path : ')
     if os.path.exists(output_file_path) : os.remove(output_file_path)
 
 

@@ -83,4 +83,6 @@ def output_file_choice() :
     ----------------------------------------------
     ''')
 
-    return 0
+    output_file_path = input('File path : ')
+
+    return output_file_path
