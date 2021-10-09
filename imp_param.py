@@ -29,17 +29,17 @@ def param_molecule() :
     kSI              : probability for one molecule in Sn to fall down to S1
     '''
 
-    molar_mass        = 339.44e-3  
-    lambda_abs        = 408e-9
-    lambda_fluo       = 480e-9
-    tau_f             = 1.28e-9
-    tau_t             = 175e-6
-    sigma_em          = 2.8e-20
-    sigma_S1S2_pump   = 0.0
-    sigma_S1S2_laser  = 0.0
-    sigma_T1T2_pump   = 0.0
-    sigma_T1T2_laser  = 0.0
-    kSI               = 0.9
+    molar_mass       = 339.44e-3  
+    lambda_abs       = 408e-9
+    lambda_fluo      = 480e-9
+    tau_f            = 1.28e-9
+    tau_t            = 175e-6
+    sigma_em         = 2.8e-20
+    sigma_S1S2_pump  = 0.0
+    sigma_S1S2_laser = 0.0
+    sigma_T1T2_pump  = 0.0
+    sigma_T1T2_laser = 0.0
+    kSI              = 0.9
 
     arr= [molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,
         sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,
@@ -69,14 +69,14 @@ def param_sample(molar_mass) :
     sigma_abs_pump : absorption cross section at the pump wavelength (m2) 
     '''
     
-    doping            = 1.0
-    rho_matrix        = 1.15e3
-    nbr_active_mol    = (doping*rho_matrix*AVOGADRO) / molar_mass
-    absorption        = 0.8
-    thickness         = 1e-6
-    alpha             = - np.log(1-absorption) / thickness
-    sigma_abs_pump    = alpha/nbr_active_mol
-    neff              = 1.7
+    doping          = 1.0
+    rho_matrix      = 1.15e3
+    nbr_active_mol  = (doping*rho_matrix*AVOGADRO) / molar_mass
+    absorption      = 0.8
+    thickness       = 1e-6
+    alpha           = - np.log(1-absorption) / thickness
+    sigma_abs_pump  = alpha/nbr_active_mol
+    neff            = 1.7
 
 
     return [doping, sigma_abs_pump,neff,nbr_active_mol]
@@ -109,10 +109,10 @@ def param_rates(nbr_dye_molecules) :
     the populations.
     '''
 
-    kisc              = 1e7
-    ksta              = 1e-10 * 1e-6 * nbr_dye_molecules
-    ktta              = 0.0 * 1e-6 * nbr_dye_molecules
-    kssa              = 0.0 * 1e-6 * nbr_dye_molecules
+    kisc = 1e7
+    ksta = 1e-10 * 1e-6 * nbr_dye_molecules
+    ktta = 0.0 * 1e-6 * nbr_dye_molecules
+    kssa = 0.0 * 1e-6 * nbr_dye_molecules
 
 
     return [kisc,ksta,kssa,ktta]
@@ -158,7 +158,7 @@ def param_time(integration_time) :
     time_vec : time vector for ode solver
     '''
 
-    dt = 1e5
+    dt       = 1e5
     time_vec = np.linspace(0.0,integration_time, int(dt))
 
 
