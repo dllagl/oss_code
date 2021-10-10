@@ -1,5 +1,7 @@
 
 
+import os 
+
 
 def welcome() : 
 
@@ -75,8 +77,8 @@ def output_file_choice() :
     on which data are going to be written in. 
 
     Two options : 
-    Relative path : ../folder/name.out
-    Absolute path : ~/Documents/folder/name.out
+    Relative path : ../folder/simu.out
+    Absolute path : ~/Documents/folder/simu.out
 
     If the file already exists, the previous 
     version will be permanently deleted
@@ -84,5 +86,35 @@ def output_file_choice() :
     ''')
 
     output_file_path = input('File path : ')
-
     return output_file_path
+
+def config_file_choice() : 
+
+    print(
+    '''
+    ----------------------------------------------
+    Please enter a name for the file in which 
+    simulations parameters will be stored
+    Ex : simu.params
+    ----------------------------------------------
+    ''')
+
+    config_file_path = input('File path : ')
+    return config_file_path
+
+
+
+
+
+
+
+def delete_file_if_exists(arr_file) : 
+
+    print('')
+    for ii in range(len(arr_file)) : 
+
+        if os.path.exists(arr_file[ii]) : os.remove(arr_file[ii])
+        print(f'File {arr_file[ii]} has been removed.')
+    print('')
+    return 0
+    

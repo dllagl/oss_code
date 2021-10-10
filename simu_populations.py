@@ -11,6 +11,7 @@ import os
 import system     as sys 
 import imp_param  as imp 
 import simu_populations_solver as sv 
+import output_file_config as of
 import user_interface as ui
 
 
@@ -39,9 +40,20 @@ def simu() :
 
     # output file to write the data on 
     output_file_path = ui.output_file_choice()
-    if os.path.exists(output_file_path) : os.remove(output_file_path)
+    config_file_path = ui.config_file_choice()
 
 
+    ui.delete_file_if_exists([output_file_path,config_file_path])
+
+    # output config files where input parameters are stored
+    of.output_file_init_simu_pop(
+        const_molecule,
+        const_sample,
+        const_rates,
+        const_pump,
+        t,
+        config_file_path
+        )
 
     sv.solver(odeint,sys.sys_equations,init_pop,t,const_sample[0],
             const_pump[1],
@@ -50,9 +62,6 @@ def simu() :
             const_rates,
             output_file_path
         )
-
-
-
 
 
 
