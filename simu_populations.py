@@ -19,7 +19,7 @@ import user_interface as ui
 def simu(user_sys_choice) : 
 
 
-    # photophysical parameters importation
+    # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
