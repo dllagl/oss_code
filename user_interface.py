@@ -15,15 +15,29 @@ def welcome() :
     Enjoy ! 
 
     List of available simulations : 
-    1) Two level system (no T1 equation)
 
-    2) Integrate a three level system of ODE for 
-    the populations S0,S1 and T1.
-    
-    In these two options, everything is fixed and the 
-    resulting populations are written with time 
-    on an unique output file.
-    To change parameters : imp_param.py
+    One simulation at fixed parameters
+    ----------------------------------------------
+    |  1) Two level system (S0,S1)
+    |   
+    |  2) Three level system (S0,S1,T1)
+    |
+    |  The ODE system is integrated once from
+    |  tmin to tmax. Populations and inputs are 
+    |  stored in one file in the output folder
+    |  To change parameters : imp_param.py
+    ----------------------------------------------
+
+    Simulations for several values of one parameter
+    ----------------------------------------------
+    |  3) Working on that
+
+    |  The ODE system is integrated once for each
+    |  value of the chosen parameter.
+    |  Ex: if kisc = [1e6,1e7,1e8]
+    |  > three integration : populations and inputs
+    |    will be stored in three differents files
+    ----------------------------------------------
 
     ----------------------------------------------
     ----------------------------------------------

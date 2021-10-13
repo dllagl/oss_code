@@ -14,7 +14,6 @@ def solver(method,sys,initial_pop,time_vec,doping,pump_fluence,
 
 
 
-    # write data on output txt file 
     ofile = open(output_file,'a+')
 
     # two level system
@@ -28,8 +27,6 @@ def solver(method,sys,initial_pop,time_vec,doping,pump_fluence,
         for ii in range(len(sol)) :
             ofile.write('%.3e\t%.3e\t%.3e\t%.3e\n' 
             % (time_vec[ii],sol[ii,0],sol[ii,1],sol[ii,2]))
-        ofile.close()
 
     ofile.close()
-
     return 0
