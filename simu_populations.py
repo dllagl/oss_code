@@ -16,7 +16,7 @@ import user_interface as ui
 
 
 
-def simu() : 
+def simu(user_sys_choice) : 
 
 
     # photophysical parameters importation
@@ -29,9 +29,6 @@ def simu() :
 
     # time vector importation 
     dt,t = imp.param_time()
-
-    # initial value for the populations S0,S1,T1
-    init_pop = [1,0,0]
 
     # output file to write the data on 
     ui.create_if_not_exists(['output'])
@@ -57,13 +54,33 @@ def simu() :
     # main section : integration of the system of equations
     ui.simulation_start()
 
-    sv.solver(odeint,sys.sys_equations,init_pop,t,const_sample[0],
-            const_pump[0],
-            const_sample,
-            const_molecule,
-            const_rates,
-            output_file_path
-        )
+    # two level system
+    if user_sys_choice == 1 : 
+
+        # initial condition for S0,S1
+        init_pop = [1,0]
+        sv.solver(odeint,sys.sys_equations_two_pop,init_pop,t,const_sample[0],
+                const_pump[0],
+                const_sample,
+                const_molecule,
+                const_rates,
+                output_file_path,
+                user_sys_choice
+            )
+
+    # three level system
+    elif user_sys_choice == 2 : 
+
+        # initial condition for S0,S1,T1
+        init_pop = [1,0,0]
+        sv.solver(odeint,sys.sys_equations_three_pop,init_pop,t,const_sample[0],
+                const_pump[0],
+                const_sample,
+                const_molecule,
+                const_rates,
+                output_file_path,
+                user_sys_choice
+            )
 
     ui.simulation_finished()   
 

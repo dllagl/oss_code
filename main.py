@@ -11,9 +11,9 @@ ui.welcome()
 
 
 # ask user which simulations to run 
-user_choice = eval(input('Which simulations ? (1,) '))
-if user_choice == 1 : 
-    spop.simu()
+user_choice = eval(input('Which simulations ? (1,2) '))
+if (user_choice == 1) or (user_choice == 2)  : 
+    spop.simu(user_choice)
 else : 
     print('Error, please try again !')
     pass
