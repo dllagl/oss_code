@@ -9,7 +9,6 @@ import constants as cs
 
 
 
-
 def sys_equations_three_pop(s, t, doping, Ip,
                 param_sample,
                 param_molecule,
@@ -63,7 +62,6 @@ def sys_equations_three_pop(s, t, doping, Ip,
 
     ########################################################
     return sdot
-
 
 
 
