@@ -75,7 +75,7 @@ def simulation_finished() :
 
 
 
-
+# files and folders
 
 
 def output_file_choice() : 
@@ -110,10 +110,6 @@ def config_file_choice() :
 
 
 
-
-
-
-# files and folders
 
 def delete_file_if_exists(arr_file) : 
 
