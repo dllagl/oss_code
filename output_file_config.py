@@ -64,11 +64,9 @@ def output_file_init_simu_pop(arr_mol,arr_sample,arr_rates,arr_pump,vec_time, fi
 
 
     name_arr_pump = [
-        'excitation_time',
         'pump_fluence'
     ]
     unit_arr_pump = [
-        's',
         'W.m-2'
     ]
 
@@ -107,9 +105,8 @@ def output_file_init_simu_pop(arr_mol,arr_sample,arr_rates,arr_pump,vec_time, fi
 
     ofile.write('-------------------------\n')
     ofile.write('     pump parameters    \n\n')
-    for ii in range(len(name_arr_pump)) : 
-        ofile.write('%s = %.3e %s\n' 
-        % (name_arr_pump[ii],arr_pump[ii],unit_arr_pump[ii]))
+    ofile.write('%s = %.3e %s\n' 
+        % (name_arr_pump[0],arr_pump[0],unit_arr_pump[0]))
     ofile.write('-------------------------\n')
     ofile.write('\n\n')
 

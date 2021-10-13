@@ -31,7 +31,7 @@ def simu() :
 
 
     # time vector importation 
-    dt, t = imp.param_time(const_pump[0])
+    dt,t = imp.param_time()
 
 
     # initial value for the populations S0,S1,T1
@@ -56,7 +56,7 @@ def simu() :
         )
 
     sv.solver(odeint,sys.sys_equations,init_pop,t,const_sample[0],
-            const_pump[1],
+            const_pump[0],
             const_sample,
             const_molecule,
             const_rates,
