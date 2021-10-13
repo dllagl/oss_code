@@ -76,16 +76,16 @@ def output_file_choice() :
     Please write the path for the output text file
     on which data are going to be written in. 
 
-    Two options : 
-    Relative path : ../folder/simu.out
-    Absolute path : ~/Documents/folder/simu.out
-
     If the file already exists, the previous 
     version will be permanently deleted
+
+    For default name (data.out) press Enter.
     ----------------------------------------------
     ''')
+    output_folder = 'output/'
+    output_file = input('File name : ') or 'data.out'
+    output_file_path = output_folder + output_file
 
-    output_file_path = 'output/' + input('File path : ')
     return output_file_path
 
 def config_file_choice() : 
@@ -96,10 +96,13 @@ def config_file_choice() :
     Please enter a name for the file in which 
     simulations parameters will be stored
     Ex : simu.params
+    
+    For default name (data.params) press Enter.
     ----------------------------------------------
     ''')
-
-    config_file_path = 'output/' + input('File path : ')
+    config_folder = 'output/'
+    config_file = input('File path : ') or 'data.params'
+    config_file_path = config_folder + config_file
     return config_file_path
 
 
