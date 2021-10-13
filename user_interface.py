@@ -85,7 +85,7 @@ def output_file_choice() :
     ----------------------------------------------
     ''')
 
-    output_file_path = input('File path : ')
+    output_file_path = 'output/' + input('File path : ')
     return output_file_path
 
 def config_file_choice() : 
@@ -99,7 +99,7 @@ def config_file_choice() :
     ----------------------------------------------
     ''')
 
-    config_file_path = input('File path : ')
+    config_file_path = 'output/' + input('File path : ')
     return config_file_path
 
 

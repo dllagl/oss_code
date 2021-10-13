@@ -31,7 +31,7 @@ def simu() :
 
 
     # time vector importation 
-    t = imp.param_time(const_pump[0])
+    dt, t = imp.param_time(const_pump[0])
 
 
     # initial value for the populations S0,S1,T1

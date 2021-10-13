@@ -162,4 +162,4 @@ def param_time(integration_time) :
     time_vec = np.linspace(0.0,integration_time, int(dt))
 
 
-    return time_vec
+    return dt, time_vec
