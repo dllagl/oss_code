@@ -4,7 +4,6 @@
 
 # external libraries 
 from scipy.integrate import odeint
-import os
 
 
 # external files 

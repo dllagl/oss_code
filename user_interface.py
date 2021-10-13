@@ -31,7 +31,7 @@ def welcome() :
     Simulations for several values of one parameter
     ----------------------------------------------
     |  3) Working on that
-
+    |
     |  The ODE system is integrated once for each
     |  value of the chosen parameter.
     |  Ex: if kisc = [1e6,1e7,1e8]
