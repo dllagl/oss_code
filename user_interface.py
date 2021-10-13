@@ -50,26 +50,18 @@ def welcome() :
 
 
 
-
-
-def simulation_start() : 
-
-    print(
-    '''
-    Computation has started ..
+def print_something(str) : 
+    print(f'''
+    {str}
     '''
     )
 
+def simulation_start() : 
+    print_something('Computation has started ..')
     return 0
 
 def simulation_finished() : 
-
-    print(
-    '''
-    Computation has finished !
-    '''
-    )
-
+    print_something('Computation has finished.')
     return 0
 
 
