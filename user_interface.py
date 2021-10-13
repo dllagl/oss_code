@@ -74,12 +74,8 @@ def output_file_choice() :
     '''
     ----------------------------------------------
     Please write the path for the output text file
-    on which data are going to be written in. 
-
-    If the file already exists, the previous 
-    version will be permanently deleted
-
-    For default name (data.out) press Enter.
+    on which data are going to be written in.
+    Default: data.out
     ----------------------------------------------
     ''')
     output_folder = 'output/'
@@ -95,9 +91,7 @@ def config_file_choice() :
     ----------------------------------------------
     Please enter a name for the file in which 
     simulations parameters will be stored
-    Ex : simu.params
-    
-    For default name (data.params) press Enter.
+    Default: data.params (just press Enter)
     ----------------------------------------------
     ''')
     config_folder = 'output/'
