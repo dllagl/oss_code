@@ -37,6 +37,10 @@ def welcome() :
     |  Ex: if kisc = [1e6,1e7,1e8]
     |  > three integration : populations and inputs
     |    will be stored in three differents files
+    |  
+    |  The concerned parameters will have to be 
+    |  chosen after this choice
+    |  !! DON'T PUT LISTS/ARRAYS IN imp_param.py !!
     ----------------------------------------------
 
     ----------------------------------------------
