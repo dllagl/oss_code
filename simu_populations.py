@@ -18,7 +18,6 @@ import user_interface as ui
 
 def simu() : 
 
-    ui.simulation_start()
 
     # photophysical parameters importation
     const_molecule = imp.param_molecule()
@@ -37,8 +36,9 @@ def simu() :
     # initial value for the populations S0,S1,T1
     init_pop = [1,0,0]
 
-
+    
     # output file to write the data on 
+    ui.create_if_not_exists(['output'])
     output_file_path = ui.output_file_choice()
     config_file_path = ui.config_file_choice()
 
@@ -55,6 +55,13 @@ def simu() :
         config_file_path
         )
 
+
+
+
+
+    # main section : integration of the system of equations
+    ui.simulation_start()
+
     sv.solver(odeint,sys.sys_equations,init_pop,t,const_sample[0],
             const_pump[0],
             const_sample,
@@ -63,9 +70,10 @@ def simu() :
             output_file_path
         )
 
+    ui.simulation_finished()   
 
 
-    ui.simulation_finished()    
+
     return 0
 
 
