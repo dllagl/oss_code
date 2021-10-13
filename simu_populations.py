@@ -23,12 +23,8 @@ def simu(user_sys_choice) :
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
-
-    # pump parameters importation
-    const_pump = imp.param_pump()
-
-    # time vector importation 
-    dt,t = imp.param_time()
+    const_pump     = imp.param_pump()
+    dt,t           = imp.param_time()
 
     # output file to write the data on 
     ui.create_if_not_exists(['output'])
