@@ -1,12 +1,13 @@
 
 
+
+# external libraries
 import numpy as np 
 
+# external files 
+import constants as cs
 
 
-
-# constants 
-AVOGADRO = 6.0221407e23
 
 
 
@@ -71,7 +72,7 @@ def param_sample(molar_mass) :
     
     doping          = 1.0
     rho_matrix      = 1.15e3
-    nbr_active_mol  = (doping*rho_matrix*AVOGADRO) / molar_mass
+    nbr_active_mol  = (doping*rho_matrix*cs.C_AVO) / molar_mass
     absorption      = 0.8
     thickness       = 1e-6
     alpha           = - np.log(1-absorption) / thickness

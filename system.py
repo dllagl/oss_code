@@ -1,4 +1,11 @@
+
+
+
+# external libraries
 import numpy as np 
+
+# external files 
+import constants as cs
 
 
 
@@ -21,26 +28,15 @@ def sys_equations_three_pop(s, t, doping, Ip,
     kISC, kSTA, kSSA, kTTA = param_interaction_rate
 
 
-
-
     # vector of the solution
-    sdot = np.empty((3,)) 
-    
-    # plank's constant * speed of light
-    hc = 1.9864458571489286e-25 
-    
-    # speed of light
-    c  = 299792458.0      
-
-    zeta = 0.25
-    # singlets spin-statistics creation ratio   
+    sdot = np.empty((3,))   
 
 
     ########################################################
 
     # S0 equation
     sdot[0] = ( 
-            ( - sigma_abs_p * lambda_abs * Ip * s[0] / hc )
+            ( - sigma_abs_p * lambda_abs * Ip * s[0] / cs.C_HC )
             + ( s[1] / tau_f ) 
             + ( s[2] / tau_t )
             + ( kSTA * s[1] * s[2] )
@@ -50,19 +46,19 @@ def sys_equations_three_pop(s, t, doping, Ip,
 
     # S1 equation
     sdot[1] = (
-            (sigma_abs_p * lambda_abs * Ip * s[0]) / hc
+            (sigma_abs_p * lambda_abs * Ip * s[0]) / cs.C_HC
             - ( s[1] * (1/tau_f + kISC) )
             - ( kSTA * s[1] * s[2] ) 
-            + ( zeta * kTTA * s[2] * s[2] )
-            - ( kSSA * s[1] * s[1] * (2- zeta) )
+            + ( cs.C_ZETA * kTTA * s[2] * s[2] )
+            - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
     )
 
     # T1 equation
     sdot[2] = (
             ( kISC * s[1] )
             - ( s[2] / tau_t )
-            + ( kSSA * s[1] * s[1] * (1-zeta) )
-            - ( (1+zeta) * kTTA * s[2] * s[2] )
+            + ( kSSA * s[1] * s[1] * (1-cs.C_ZETA) )
+            - ( (1+cs.C_ZETA) * kTTA * s[2] * s[2] )
     )
 
     ########################################################
@@ -94,35 +90,24 @@ def sys_equations_two_pop(s, t, doping, Ip,
     kISC, kSTA, kSSA, kTTA = param_interaction_rate
 
 
-
-
     # vector of the solution
-    sdot = np.empty((2,)) 
-    
-    # plank's constant * speed of light
-    hc = 1.9864458571489286e-25 
-    
-    # speed of light
-    c  = 299792458.0      
-
-    zeta = 0.25
-    # singlets spin-statistics creation ratio   
+    sdot = np.empty((2,))   
 
 
     ########################################################
 
     # S0 equation
     sdot[0] = ( 
-            ( - sigma_abs_p * lambda_abs * Ip * s[0] / hc )
+            ( - sigma_abs_p * lambda_abs * Ip * s[0] / cs.C_HC )
             + ( s[1] / tau_f ) 
             + ( kSSA * s[1] * s[1] )
     )
 
     # S1 equation
     sdot[1] = (
-            (sigma_abs_p * lambda_abs * Ip * s[0]) / hc
+            (sigma_abs_p * lambda_abs * Ip * s[0]) / cs.C_HC
             - ( s[1] * (1/tau_f) )
-            - ( kSSA * s[1] * s[1] * (2- zeta) )
+            - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
     )
 
     ########################################################
