@@ -81,7 +81,6 @@ def output_file_choice() :
     output_folder = 'output/'
     output_file = input('File name : ') or 'data.out'
     output_file_path = output_folder + output_file
-
     return output_file_path
 
 def config_file_choice() : 
@@ -104,8 +103,7 @@ def config_file_choice() :
 
 
 
-# files and folder 
-
+# files and folders
 
 def delete_file_if_exists(arr_file) : 
 

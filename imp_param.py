@@ -151,8 +151,8 @@ def param_pump() :
 def param_time() : 
 
     '''
-    dt : number of point per integration time step 
-    time_vec : time vector for ode solver
+    nbr_points : number of point per integration time step 
+    time_vec   : time vector for ode solver
     '''
 
     print('----------------------------------------------')
@@ -169,8 +169,8 @@ def param_time() :
     tmax = eval(input('tmax = '))
     print('----------------------------------------------')
 
-    dt       = 1e5
-    time_vec = np.linspace(tmin,tmax, int(dt))
+    nbr_pts = 1e5
+    time_vec = np.linspace(tmin,tmax, int(nbr_pts))
 
 
-    return dt,time_vec
+    return nbr_pts,time_vec

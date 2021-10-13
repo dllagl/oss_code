@@ -24,24 +24,19 @@ def simu() :
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
 
-
     # pump parameters importation
     const_pump = imp.param_pump()
-
 
     # time vector importation 
     dt,t = imp.param_time()
 
-
     # initial value for the populations S0,S1,T1
     init_pop = [1,0,0]
 
-    
     # output file to write the data on 
     ui.create_if_not_exists(['output'])
     output_file_path = ui.output_file_choice()
     config_file_path = ui.config_file_choice()
-
 
     ui.delete_file_if_exists([output_file_path,config_file_path])
 
