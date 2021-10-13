@@ -15,15 +15,15 @@ def welcome() :
     Enjoy ! 
 
     List of available simulations : 
+    1) Two level system (no T1 equation)
 
-    1) Integrate a three level system of ODE for 
+    2) Integrate a three level system of ODE for 
     the populations S0,S1 and T1.
-    In this option, everything is fixed and the 
+    
+    In these two options, everything is fixed and the 
     resulting populations are written with time 
     on an unique output file.
-    
-    To costum parameters such as rates, time of 
-    integration and so on, go to imp_param.py.
+    To change parameters : imp_param.py
 
     ----------------------------------------------
     ----------------------------------------------
