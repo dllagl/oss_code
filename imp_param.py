@@ -74,7 +74,7 @@ def param_sample(molar_mass) :
     rho_matrix      = 1.15e3
     nbr_active_mol  = (doping*rho_matrix*cs.C_AVO) / molar_mass
     absorption      = 0.8
-    thickness       = 1e-6
+    thickness       = 200e-9
     alpha           = - np.log(1-absorption) / thickness
     sigma_abs_pump  = alpha/nbr_active_mol
     neff            = 1.7
@@ -110,7 +110,7 @@ def param_rates(nbr_dye_molecules) :
     the populations.
     '''
 
-    kisc = 1e7
+    kisc = 1e8
     ksta = 1e-10 * 1e-6 * nbr_dye_molecules
     ktta = 0.0 * 1e-6 * nbr_dye_molecules
     kssa = 0.0 * 1e-6 * nbr_dye_molecules

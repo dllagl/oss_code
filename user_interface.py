@@ -130,3 +130,20 @@ def create_if_not_exists(arr_folder) :
     return 0
 
     
+
+
+
+# choose which variable to iterate on in 
+# simu_multiple_params() function
+def choose_params_to_iterate() : return int(input('var ? '))
+
+def choose_params_values() : 
+
+    arr = []
+    temp = input('value : ')
+
+    while temp : 
+        arr.append(eval(temp))
+        temp = input('value : ')
+    
+    return arr
