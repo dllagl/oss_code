@@ -43,11 +43,15 @@ def simu(user_sys_choice) :
         )
 
 
-
-    # Simulations are done step-by-step for n block
-    # of 1 microsecond of 1e4 pts
-    time_step_unit = 1e-6  # time block of 1 us
-    nbr_pts_per_step = 2e3 # 2000 pts per us
+    '''
+    Simulations are done step-by-step by 1 microsecond in
+    order not to full crash the program when output vectors
+    become too heavy
+    This way, you can simulate any time, you are only limited
+    by the physical memory of your computer.
+    '''
+    time_step_unit    = 1e-6  # time block of 1 us
+    nbr_pts_per_step  = 2e3   # 2000 pts per us
     time_step_counter = int(tmax/time_step_unit)
 
 
