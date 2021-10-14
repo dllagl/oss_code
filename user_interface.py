@@ -18,8 +18,7 @@ def welcome() :
 
     One simulation at fixed parameters
     ----------------------------------------------
-    |  1) Two level system (S0,S1)
-    |   
+    |  1) Two level system (S0,S1)  
     |  2) Three level system (S0,S1,T1)
     |
     |  The ODE system is integrated once from
@@ -30,17 +29,15 @@ def welcome() :
 
     Simulations for several values of one parameter
     ----------------------------------------------
-    |  3) Working on that
+    |  3) Two level system (S0,S1)
+    |  4) Three level system (S0,S1,T1)
     |
     |  The ODE system is integrated once for each
-    |  value of the chosen parameter.
-    |  Ex: if kisc = [1e6,1e7,1e8]
-    |  > three integration : populations and inputs
-    |    will be stored in three differents files
-    |  
-    |  The concerned parameters will have to be 
-    |  chosen after this choice
-    |  !! DON'T PUT LISTS/ARRAYS IN imp_param.py !!
+    |  value of a given parameter.
+    |  Ex: if you want to execute the program for 
+    |  n value of kisc or the doping, choose this
+    |  one. You will choose the parameter you want
+    |  on the next frame.
     ----------------------------------------------
 
     ----------------------------------------------
@@ -137,18 +134,52 @@ def create_if_not_exists(arr_folder) :
 
 # choose which variable to iterate on in 
 # simu_multiple_params() function
-def choose_params_to_iterate() : return int(input('var ? '))
+def choose_param() : 
 
-def choose_params_values() : 
+    print(
+    '''
+    ---------------------------------
+    0)  doping
+    1)  sigma_abs (m2)
+    2)  n_eff
+    3)  nbr_active_molecule (m-3)
+    4)  molar_mass (g/mol)
+    5)  lambda_abs (m)
+    6)  lambda_fluo (m)
+    7)  tau_f (s)
+    8)  tau_t (s)
+    9)  sigma_em (m2)
+    10) sigma_S1S2_pump (m2)
+    11) sigma_S1S2_laser (m2)
+    12) sigma_T1T2_pump (m2)
+    13) sigma_T1T2_laser (m2)
+    14) kSI
+    15) kisc (s-1) 
+    16) ksta (m3.s-1)
+    17) kssa (m3.s-1)
+    18) ktta (m3.s-1)
+    ---------------------------------
+    ''')
 
+    return int(input("Which variable du you want to iterate ? "))
+
+
+
+def choose_param_values() : 
+
+    print('Press enter after each written.')
+    print('When finish, press Enter once more.')
+    print('')
     arr = []
     count = 1
-    temp = input(f'value {count} : ')
+    temp = input(f'Value {count} (Press Enter when finish) : ')
     count += 1
 
     while temp : 
         arr.append(eval(temp))
-        temp = input(f'value {count} : ')
+        temp = input(f'Value {count} (Press Enter when finish) : ')
         count += 1
     
     return arr
+
+

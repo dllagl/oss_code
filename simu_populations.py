@@ -159,8 +159,15 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     # solve the ODE for each value of var_arr
     for ii in range(len(var_arr)) : 
 
-        const_params[var_idx] = var_arr[ii]
-        
+        if (var_idx==16) or (var_idx==17) or (var_idx==18) :
+            # exeptions for ksta,kssa,ktta that are in m3.s-1 as 
+            # input for the user, but must be multiplied by N since
+            # the populations are normalized
+            const_params[var_idx] = var_arr[ii] * const_sample[2]
+            
+        else : 
+            const_params[var_idx] = var_arr[ii]
+
         output_file_path = f'output/data_{ii}.out'
         config_file_path = f'output/data_{ii}.params'
         ui.delete_file_if_exists([output_file_path,config_file_path])
