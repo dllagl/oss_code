@@ -22,6 +22,10 @@ def simu_fixed_params(user_sys_choice) :
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
+
+    # concatenate arrays for solver 
+    const_params   = const_sample + const_molecule + const_rates
+
     const_pump     = imp.param_pump()
     tmin,tmax      = imp.param_time()
 
@@ -74,9 +78,7 @@ def simu_fixed_params(user_sys_choice) :
     # solve the ODE
     sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],
                 const_pump[0],
-                const_sample,
-                const_molecule,
-                const_rates,
+                const_params,
                 output_file_path,
                 user_sys_choice,
                 time_step_counter,

@@ -10,20 +10,16 @@ import constants as cs
 
 
 
-def sys_equations_two_pop(s, t, doping, Ip,
-                param_sample,
-                param_molecule,
-                param_interaction_rate) : 
+def sys_equations_two_pop(s, t, doping, Ip, param_vec) : 
 
     '''
     S0    = s[0]
     S1    = s[1]
     '''
 
-    # equations parameters
-    doping,sigma_abs_p, n, N = param_sample
-    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI = param_molecule
-    kISC, kSTA, kSSA, kTTA = param_interaction_rate
+    doping,sigma_abs_p, n, N,\
+    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
+    kISC, kSTA, kSSA, kTTA = param_vec
 
 
     # vector of the solution
@@ -61,10 +57,7 @@ def sys_equations_two_pop(s, t, doping, Ip,
 
 
 
-def sys_equations_three_pop(s, t, doping, Ip,
-                param_sample,
-                param_molecule,
-                param_interaction_rate) : 
+def sys_equations_three_pop(s, t, doping, Ip, param_vec) : 
 
     '''
     S0    = s[0]
@@ -73,9 +66,9 @@ def sys_equations_three_pop(s, t, doping, Ip,
     '''
 
     # equations parameters
-    doping,sigma_abs_p, n, N = param_sample
-    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI = param_molecule
-    kISC, kSTA, kSSA, kTTA = param_interaction_rate
+    doping,sigma_abs_p, n, N,\
+    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
+    kISC, kSTA, kSSA, kTTA = param_vec
 
 
     # vector of the solution

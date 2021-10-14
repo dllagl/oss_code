@@ -5,7 +5,7 @@ import numpy as np
 
 
 def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
-    sample_arr,molecule_arr,rates_arr,output_file, user_sys_choice,
+    param_arr,output_file, user_sys_choice,
     time_counter,time_unit,nbr_pts) :
 
 
@@ -16,7 +16,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping, pump_fluence,
-            sample_arr,molecule_arr,rates_arr)
+            param_arr)
             )
 
 
