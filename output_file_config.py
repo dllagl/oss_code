@@ -3,7 +3,7 @@
 
 
 def output_file_init_simu_pop(
-    arr_mol,arr_sample,arr_rates,arr_pump,tmin,tmax,file) : 
+    arr_sample,arr_mol,arr_rates,arr_pump,tmin,tmax,file) : 
 
     name_arr_mol = [
         'molar_mass',
