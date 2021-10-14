@@ -46,36 +46,29 @@ def simu(user_sys_choice) :
 
     # Simulations are done step-by-step for n block
     # of 1 microsecond of 1e4 pts
-    time_step_unit = 1e-6 #(1us)
+    time_step_unit = 1e-6  # time block of 1 us
+    nbr_pts_per_step = 2e3 # 2000 pts per us
     time_step_counter = int(tmax/time_step_unit)
-    print(time_step_counter)
 
 
-    # main section : integration of the system of equations
+
+
+    #---------------------------------------------------#
+    #---------------------------------------------------#
     ui.simulation_start()
 
-    # two level system
+    # two level system (S0,S1)
     if user_sys_choice == 1 : 
+        init_pop  = [1,0]
+        ode_sys   = sys.sys_equations_two_pop
 
-        # initial condition for S0,S1
-        init_pop = [1,0]
-        sv.solver(odeint,sys.sys_equations_two_pop,init_pop,tmin,tmax,const_sample[0],
-                const_pump[0],
-                const_sample,
-                const_molecule,
-                const_rates,
-                output_file_path,
-                user_sys_choice,
-                time_step_counter,
-                time_step_unit
-            )
-
-    # three level system
+    # three level system (S0,S1,T1)
     elif user_sys_choice == 2 : 
-
-        # initial condition for S0,S1,T1
         init_pop = [1,0,0]
-        sv.solver(odeint,sys.sys_equations_three_pop,init_pop,tmin,tmax,const_sample[0],
+        ode_sys = sys.sys_equations_three_pop
+
+    # solve the ODE
+    sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],
                 const_pump[0],
                 const_sample,
                 const_molecule,
@@ -83,10 +76,13 @@ def simu(user_sys_choice) :
                 output_file_path,
                 user_sys_choice,
                 time_step_counter,
-                time_step_unit
+                time_step_unit,
+                nbr_pts_per_step
             )
-
-    ui.simulation_finished()   
+    
+    ui.simulation_finished()  
+    #---------------------------------------------------#
+    #---------------------------------------------------# 
 
 
 
