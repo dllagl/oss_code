@@ -46,7 +46,7 @@ def simu(user_sys_choice) :
     '''
     Simulations are done step-by-step by 1 microsecond in
     order not to full crash the program when output vectors
-    become too heavy
+    become too heavy blabla
     This way, you can simulate any time, you are only limited
     by the physical memory of your computer.
     '''
