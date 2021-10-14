@@ -167,6 +167,7 @@ def choose_param() :
 
 def choose_param_values() : 
 
+    print('')
     print('Press enter after each written.')
     print('When finish, press Enter once more.')
     print('')
