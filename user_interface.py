@@ -118,7 +118,6 @@ def delete_file_if_exists(arr_file) :
 
         if os.path.exists(arr_file[ii]) : os.remove(arr_file[ii])
         print(f'File {arr_file[ii]} has been removed.')
-    print('')
     return 0
 
 def create_if_not_exists(arr_folder) : 
@@ -128,7 +127,6 @@ def create_if_not_exists(arr_folder) :
         if os.path.exists(arr_folder[ii]) == False : 
             os.makedirs(arr_folder[ii])
             print(f'Folder {arr_folder[ii]} has been created.')
-    print('')
     return 0
 
     

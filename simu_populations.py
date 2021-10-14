@@ -23,7 +23,7 @@ def simu(user_sys_choice) :
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
     const_pump     = imp.param_pump()
-    dt,t           = imp.param_time()
+    dt,tmin,tmax   = imp.param_time()
 
     # output file to write the data on 
     ui.create_if_not_exists(['output'])
@@ -38,12 +38,17 @@ def simu(user_sys_choice) :
         const_sample,
         const_rates,
         const_pump,
-        t,
+        tmin,tmax,
         config_file_path
         )
 
 
 
+    # Simulations are done step-by-step for n block
+    # of 1 microsecond of 1e4 pts
+    time_step_unit = 1e-6 #(1us)
+    time_step_counter = int(tmax/time_step_unit)
+    print(time_step_counter)
 
 
     # main section : integration of the system of equations
@@ -54,13 +59,15 @@ def simu(user_sys_choice) :
 
         # initial condition for S0,S1
         init_pop = [1,0]
-        sv.solver(odeint,sys.sys_equations_two_pop,init_pop,t,const_sample[0],
+        sv.solver(odeint,sys.sys_equations_two_pop,init_pop,tmin,tmax,const_sample[0],
                 const_pump[0],
                 const_sample,
                 const_molecule,
                 const_rates,
                 output_file_path,
-                user_sys_choice
+                user_sys_choice,
+                time_step_counter,
+                time_step_unit
             )
 
     # three level system
@@ -68,13 +75,15 @@ def simu(user_sys_choice) :
 
         # initial condition for S0,S1,T1
         init_pop = [1,0,0]
-        sv.solver(odeint,sys.sys_equations_three_pop,init_pop,t,const_sample[0],
+        sv.solver(odeint,sys.sys_equations_three_pop,init_pop,tmin,tmax,const_sample[0],
                 const_pump[0],
                 const_sample,
                 const_molecule,
                 const_rates,
                 output_file_path,
-                user_sys_choice
+                user_sys_choice,
+                time_step_counter,
+                time_step_unit
             )
 
     ui.simulation_finished()   

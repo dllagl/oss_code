@@ -2,7 +2,8 @@
 
 
 
-def output_file_init_simu_pop(arr_mol,arr_sample,arr_rates,arr_pump,vec_time, file) : 
+def output_file_init_simu_pop(
+    arr_mol,arr_sample,arr_rates,arr_pump,tmin,tmax,file) : 
 
     name_arr_mol = [
         'molar_mass',
@@ -115,9 +116,9 @@ def output_file_init_simu_pop(arr_mol,arr_sample,arr_rates,arr_pump,vec_time, fi
 
     ofile.write('-------------------------\n')
     ofile.write('     time parameters    \n\n')
-    ofile.write('Starting time : %.3e s\n' % vec_time[0])
-    ofile.write('Ending time   : %.3e s\n' % vec_time[-1])
-    ofile.write('Number of points : %d\n' % len(vec_time))
+    ofile.write('Starting time : %.3e s\n' % tmin)
+    ofile.write('Ending time   : %.3e s\n' % tmax)
+    # ofile.write('Number of points : %d\n' % len(vec_time))
     ofile.write('-------------------------\n')
     ofile.write('\n\n')
 

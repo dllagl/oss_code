@@ -131,7 +131,7 @@ def param_rates(nbr_dye_molecules) :
 def param_pump() : 
 
     '''
-    pump fluence    : fluence of the pump (kW/cm2) * 1e7 (W/m2)
+    pump fluence : fluence of the pump (kW/cm2) * 1e7 (W/m2)
     '''
 
     pump_fluence    = 10 * 1e7
@@ -152,21 +152,17 @@ def param_pump() :
 def param_time() : 
 
     '''
-    nbr_points : number of point per integration time step 
-    time_vec   : time vector for ode solver
+    nbr_pts  : number of point per integration time step 
+    time_vec : time vector for ode solver
     '''
 
     print('----------------------------------------------')
     print('Starting time of the integration (sec) ? ')
     print('Ex: 0.0')
-    print('')
     tmin = eval(input('tmin = '))
-    print('----------------------------------------------')
     print('')
-    print('----------------------------------------------')
     print('Ending time of the integration (sec) ? ')
     print('Ex: 100e-6')
-    print('')
     tmax = eval(input('tmax = '))
     print('----------------------------------------------')
 
@@ -174,4 +170,4 @@ def param_time() :
     time_vec = np.linspace(tmin,tmax, int(nbr_pts))
 
 
-    return nbr_pts,time_vec
+    return nbr_pts,tmin,tmax
