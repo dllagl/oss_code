@@ -14,8 +14,8 @@ import output_file_config as of
 import user_interface as ui
 
 
-
-def simu(user_sys_choice) : 
+# simulations for one set of parameters
+def simu_fixed_params(user_sys_choice) : 
 
 
     # photophysics/pump/time parameters importation
@@ -23,7 +23,7 @@ def simu(user_sys_choice) :
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[2])
     const_pump     = imp.param_pump()
-    dt,tmin,tmax   = imp.param_time()
+    tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
     ui.create_if_not_exists(['output'])
@@ -88,10 +88,7 @@ def simu(user_sys_choice) :
     #---------------------------------------------------#
     #---------------------------------------------------# 
 
-
-
     return 0
-
 
 
 
