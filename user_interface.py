@@ -76,6 +76,15 @@ def simulation_finished() :
 
 def output_folder_choice() : 
 
+    print(
+    '''
+    ----------------------------------------------
+    Please write the path for the output folder in
+    which data are going to be written in.
+    Default (Press Enter): output
+    ----------------------------------------------
+    ''')
+
     folder = input('Output folder name : ') or 'output'
     return folder
 
@@ -86,7 +95,7 @@ def output_file_choice(output_folder) :
     ----------------------------------------------
     Please write the path for the output text file
     on which data are going to be written in.
-    Default: data.out
+    Default (Press Enter): data.out
     ----------------------------------------------
     ''')
     output_file = input('File name : ') or 'data.out'
@@ -100,7 +109,7 @@ def config_file_choice(output_folder) :
     ----------------------------------------------
     Please enter a name for the file in which 
     simulations parameters will be stored
-    Default: data.params (just press Enter)
+    Default (Press Enter): data.params
     ----------------------------------------------
     ''')
     config_file = input('File path : ') or 'data.params'
