@@ -12,6 +12,7 @@ import imp_param  as imp
 import simu_populations_solver as sv 
 import output_file_config as of
 import user_interface as ui
+import user_choice as uc
 
 
 # simulations for one set of parameters
@@ -30,9 +31,9 @@ def simu_fixed_params(user_sys_choice) :
     tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
-    output_folder = ui.output_folder_choice()
-    output_file_path = ui.output_file_choice(output_folder)
-    config_file_path = ui.config_file_choice(output_folder)
+    output_folder = uc.output_folder_choice()
+    output_file_path = uc.output_file_choice(output_folder)
+    config_file_path = uc.config_file_choice(output_folder)
 
     ui.create_if_not_exists([output_folder])
     ui.delete_file_if_exists([output_file_path,config_file_path])
@@ -122,7 +123,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
-    output_folder = ui.output_folder_choice()
+    output_folder = uc.output_folder_choice()
     ui.create_if_not_exists([output_folder])
     # output_file_path = ui.output_file_choice()
     # config_file_path = ui.config_file_choice()
