@@ -74,8 +74,12 @@ def simulation_finished() :
 
 # files and folders
 
+def output_folder_choice() : 
 
-def output_file_choice() : 
+    folder = input('Output folder name : ') or 'output'
+    return folder
+
+def output_file_choice(output_folder) : 
 
     print(
     '''
@@ -85,12 +89,11 @@ def output_file_choice() :
     Default: data.out
     ----------------------------------------------
     ''')
-    output_folder = 'output/'
     output_file = input('File name : ') or 'data.out'
-    output_file_path = output_folder + output_file
+    output_file_path = output_folder + '/' + output_file
     return output_file_path
 
-def config_file_choice() : 
+def config_file_choice(output_folder) : 
 
     print(
     '''
@@ -100,9 +103,8 @@ def config_file_choice() :
     Default: data.params (just press Enter)
     ----------------------------------------------
     ''')
-    config_folder = 'output/'
     config_file = input('File path : ') or 'data.params'
-    config_file_path = config_folder + config_file
+    config_file_path = output_folder + '/' + config_file
     return config_file_path
 
 
@@ -160,8 +162,8 @@ def choose_param() :
     18) ktta (m3.s-1)
     ---------------------------------
     ''')
-
-    return int(input("Which variable du you want to iterate ? "))
+    print('Which variable du you want to iterate ?')
+    return int(input("Enter its corresponding number : "))
 
 
 

@@ -30,10 +30,11 @@ def simu_fixed_params(user_sys_choice) :
     tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
-    ui.create_if_not_exists(['output'])
-    output_file_path = ui.output_file_choice()
-    config_file_path = ui.config_file_choice()
+    output_folder = ui.output_folder_choice()
+    output_file_path = ui.output_file_choice(output_folder)
+    config_file_path = ui.config_file_choice(output_folder)
 
+    ui.create_if_not_exists([output_folder])
     ui.delete_file_if_exists([output_file_path,config_file_path])
 
     # output config files where input parameters are stored
@@ -121,7 +122,8 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
-    ui.create_if_not_exists(['output'])
+    output_folder = ui.output_folder_choice()
+    ui.create_if_not_exists([output_folder])
     # output_file_path = ui.output_file_choice()
     # config_file_path = ui.config_file_choice()
 
