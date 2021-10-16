@@ -122,13 +122,10 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     const_pump     = imp.param_pump()
     tmin,tmax      = imp.param_time()
 
-    # output file to write the data on 
+    # creation of output folder
     output_folder = uc.output_folder_choice()
     ui.create_if_not_exists([output_folder])
-    # output_file_path = ui.output_file_choice()
-    # config_file_path = ui.config_file_choice()
 
-    # ui.delete_file_if_exists([output_file_path,config_file_path])
 
 
     '''
@@ -171,8 +168,9 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
         else : 
             const_params[var_idx] = var_arr[ii]
 
-        output_file_path = f'output/data_{ii}.out'
-        config_file_path = f'output/data_{ii}.params'
+        # creation of the data output files
+        output_file_path = f'{output_folder}/data_{ii}.out'
+        config_file_path = f'{output_folder}/data_{ii}.params'
         ui.delete_file_if_exists([output_file_path,config_file_path])
 
         # output config files where input parameters are stored
