@@ -4,7 +4,6 @@
 
 # files and folders
 def output_folder_choice() : 
-
     print(
 '''
 ----------------------------------------------
@@ -18,7 +17,6 @@ Default (Press Enter): output
     return folder
 
 def output_file_choice(output_folder) : 
-
     print(
 '''
 ----------------------------------------------
@@ -32,7 +30,6 @@ Default (Press Enter): data.out
     return output_file_path
 
 def config_file_choice(output_folder) : 
-
     print(
 '''
 ----------------------------------------------
@@ -58,7 +55,6 @@ Default (Press Enter): data.params
 # choose which variable to iterate on in 
 # simu_multiple_params() function
 def choose_param() : 
-
     print(
 '''
 ---------------------------------
@@ -89,7 +85,6 @@ def choose_param() :
 
 
 def choose_param_values() : 
-
     print('')
     print('Press enter after each written.')
     print('When finish, press Enter once more.')
