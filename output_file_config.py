@@ -1,5 +1,5 @@
 
-
+from datetime import datetime
 
 
 def output_file_init_simu_pop(
@@ -76,6 +76,10 @@ def output_file_init_simu_pop(
     ofile = open(file,'a+')
     ofile.write('\n\n')
 
+    # write current day and time
+    ofile.write('@date : %s' % datetime.now())
+
+    ofile.write('\n\n')
 
     ofile.write('-------------------------\n')
     ofile.write('   molecule parameters   \n\n')
