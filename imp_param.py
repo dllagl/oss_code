@@ -151,16 +151,9 @@ def param_pump() :
 # time parameters
 def param_time() : 
 
-
-    print('----------------------------------------------')
-    print('Starting time of the integration (sec) ? ')
-    print('Ex: 0.0')
-    tmin = eval(input('tmin = '))
-    print('')
-    print('Ending time of the integration (sec) ? ')
-    print('Ex: 100e-6')
-    tmax = eval(input('tmax = '))
-    print('----------------------------------------------')
-
+    # start of the integration
+    tmin = 0.0
+    # end of the integration
+    tmax = eval(input('Enter a time of integration in secs (ex: 10e-6) :  '))
 
     return tmin,tmax

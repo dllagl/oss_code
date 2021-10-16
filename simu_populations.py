@@ -147,19 +147,19 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     ui.simulation_start()
 
     # two level system (S0,S1)
-    if user_sys_choice == 3 : 
+    if user_sys_choice == 1 : 
         init_pop  = [1,0]
         ode_sys   = sys.sys_equations_two_pop
 
     # three level system (S0,S1,T1)
-    elif user_sys_choice == 4 : 
+    elif user_sys_choice == 2 : 
         init_pop = [1,0,0]
         ode_sys = sys.sys_equations_three_pop
 
     # solve the ODE for each value of var_arr
     for ii in range(len(var_arr)) : 
 
-        if (var_idx==16) or (var_idx==17) or (var_idx==18) :
+        if (var_idx>15) and (var_idx<19) : 
             # exeptions for ksta,kssa,ktta that are in m3.s-1 as 
             # input for the user, but must be multiplied by N since
             # the populations are normalized

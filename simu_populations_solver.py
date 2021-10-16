@@ -24,7 +24,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
         ofile = open(output_file,'a+')
 
         # two level system
-        if (user_sys_choice == 1) or (user_sys_choice == 3) : 
+        if user_sys_choice == 1 : 
             
             # actualized initial populations
             initial_pop = [sol[-1,0], sol[-1,1]]
@@ -35,7 +35,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
                 % (time_vec[jj],sol[jj,0],sol[jj,1]))
 
         # three level system
-        elif (user_sys_choice == 2 or (user_sys_choice == 4)) : 
+        elif user_sys_choice == 2 : 
 
             initial_pop = [sol[-1,0], sol[-1,1], sol[-1,2]]
 

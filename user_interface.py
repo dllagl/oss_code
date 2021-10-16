@@ -2,48 +2,33 @@
 
 import os 
 
-
+# main menu 
 def welcome() : 
-
     print(
-    '''
-    ----------------------------------------------
-    ----------------------------------------------
+'''
+----------------------------------------------
+----------------------------------------------
 
-    Welcome in this interface, this Hello message
-    is pretty boring but it will get better afterwards
-    Enjoy ! 
+Welcome in this interface, this Hello message
+is pretty boring but it will get better afterwards
+Enjoy ! 
 
-    List of available simulations : 
+----------------------------------------------
+----------------------------------------------
+''')
+    return 0
 
-    One simulation at fixed parameters
-    ----------------------------------------------
-    |  1) Two level system (S0,S1)  
-    |  2) Three level system (S0,S1,T1)
-    |
-    |  The ODE system is integrated once from
-    |  tmin to tmax. Populations and inputs are 
-    |  stored in one file in the output folder
-    |  To change parameters : imp_param.py
-    ----------------------------------------------
+def print_available_systems() : 
+    print(
+'''
+>> Populations
+1) two level   : S0/S1
+2) three level : S0/S1/T1
 
-    Simulations for several values of one parameter
-    ----------------------------------------------
-    |  3) Two level system (S0,S1)
-    |  4) Three level system (S0,S1,T1)
-    |
-    |  The ODE system is integrated once for each
-    |  value of a given parameter.
-    |  Ex: if you want to execute the program for 
-    |  n value of kisc or the doping, choose this
-    |  one. You will choose the parameter you want
-    |  on the next frame.
-    ----------------------------------------------
-
-    ----------------------------------------------
-    ----------------------------------------------
-    ''')
-
+>> Populations + lasing intensity (ongoing development)
+3) two level : S0/S1/intensity
+4) three level : S0/S1/T1/intensity
+''')
     return 0
 
 
@@ -51,11 +36,11 @@ def welcome() :
 
 
 
+
+# stupid stuffs
 def print_something(str) : 
-    print(f'''
-    {str}
-    '''
-    )
+    print(f'{str}')
+    return 0
 
 def simulation_start() : 
     print_something('Computation has started ..')
@@ -76,7 +61,7 @@ def simulation_finished() :
 
 
 
-
+# files and folders
 def delete_file_if_exists(arr_file) : 
 
     for ii in range(len(arr_file)) : 
