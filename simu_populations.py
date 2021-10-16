@@ -140,6 +140,10 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     '''
     time_step_unit    = 1e-6  # time block of 1 us
     nbr_pts_per_step  = 2e3   # 2000 pts per us
+
+    # integration time smaller that time step handling 
+    if tmax < time_step_unit : time_step_unit = tmax
+    
     time_step_counter = int(tmax/time_step_unit)
 
 
