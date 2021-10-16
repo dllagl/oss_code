@@ -81,8 +81,8 @@ def output_file_init_simu_pop(
 
     ofile.write('\n\n')
 
+    ofile.write('@molecule parameters\n')
     ofile.write('-------------------------\n')
-    ofile.write('   molecule parameters   \n\n')
     for ii in range(len(name_arr_mol)) : 
         ofile.write('%s = %.3e %s\n' 
         % (name_arr_mol[ii],arr_mol[ii],unit_arr_mol[ii]))
@@ -90,8 +90,8 @@ def output_file_init_simu_pop(
     ofile.write('\n\n')
 
 
+    ofile.write('@sample parameters\n')
     ofile.write('-------------------------\n')
-    ofile.write('    sample parameters    \n\n')
     for ii in range(len(name_arr_sample)) : 
         ofile.write('%s = %.3e %s\n' 
         % (name_arr_sample[ii],arr_sample[ii],unit_arr_sample[ii]))
@@ -99,8 +99,8 @@ def output_file_init_simu_pop(
     ofile.write('\n\n')
 
 
+    ofile.write('@rate parameters\n')
     ofile.write('-------------------------\n')
-    ofile.write('    rates parameters    \n\n')
     for ii in range(len(name_arr_rates)) : 
         ofile.write('%s = %.3e %s\n' 
         % (name_arr_rates[ii],arr_rates[ii],unit_arr_rates[ii]))
@@ -108,8 +108,8 @@ def output_file_init_simu_pop(
     ofile.write('\n\n')
 
 
+    ofile.write('@pump parameters\n')
     ofile.write('-------------------------\n')
-    ofile.write('     pump parameters    \n\n')
     ofile.write('%s = %.3e %s\n' 
         % (name_arr_pump[0],arr_pump[0],unit_arr_pump[0]))
     ofile.write('-------------------------\n')
@@ -118,8 +118,8 @@ def output_file_init_simu_pop(
 
 
 
+    ofile.write('@time parameters\n')
     ofile.write('-------------------------\n')
-    ofile.write('     time parameters    \n\n')
     ofile.write('Starting time : %.3e s\n' % tmin)
     ofile.write('Ending time   : %.3e s\n' % tmax)
     # ofile.write('Number of points : %d\n' % len(vec_time))
