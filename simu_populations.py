@@ -3,6 +3,7 @@
 
 
 # external libraries 
+from datetime import time
 from scipy.integrate import odeint
 
 
@@ -51,13 +52,15 @@ def simu_fixed_params(user_sys_choice) :
 
     '''
     Simulations are done step-by-step by 1 microsecond in
-    order not to full crash the program when output vectors
+    order not to crash the program when output arrays
     become too heavy.
-    This way, you can simulate any time, you are only limited
-    by the physical memory of your computer.
     '''
     time_step_unit    = 1e-6  # time block of 1 us
     nbr_pts_per_step  = 2e3   # 2000 pts per us
+
+    # integration time smaller that time step handling 
+    if tmax < time_step_unit : time_step_unit = tmax
+
     time_step_counter = int(tmax/time_step_unit)
 
 
