@@ -97,11 +97,10 @@ def choose_param_values() :
     arr = []
     count = 1
     temp = input(f'Value {count} (Press Enter when finish) : ')
-    count += 1
 
     while temp : 
+        count += 1
         arr.append(eval(temp))
         temp = input(f'Value {count} (Press Enter when finish) : ')
-        count += 1
     
     return arr

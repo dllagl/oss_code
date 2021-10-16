@@ -3,6 +3,7 @@
 
 
 import user_interface as ui
+import user_choice as uc
 import simu_populations as spop
 
 
@@ -17,8 +18,8 @@ if (user_choice == 1) or (user_choice == 2)  :
     spop.simu_fixed_params(user_choice)
 
 elif (user_choice == 3) or (user_choice == 4) : 
-    idx     = ui.choose_param()
-    idx_arr = ui.choose_param_values()
+    idx     = uc.choose_param()
+    idx_arr = uc.choose_param_values()
     spop.simu_multiple_params(user_choice,idx,idx_arr)
 
 else : 
