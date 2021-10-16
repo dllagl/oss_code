@@ -154,6 +154,12 @@ def param_time() :
     # start of the integration
     tmin = 0.0
     # end of the integration
-    tmax = eval(input('Enter a time of integration in secs (ex: 10e-6) :  '))
+    print(
+'''
+Two options for the integration time : 
+    - tmax > 1e-6 : only integer number of microseconds (no 1.5e-6)
+    - tmax < 1e-6 : no restriction (ex : 576e-9)
+''')
+    tmax = eval(input('Enter a time of integration in secs: '))
 
     return tmin,tmax
