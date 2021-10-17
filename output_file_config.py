@@ -1,7 +1,6 @@
 
 from datetime import datetime
-from os import write
-
+import platform as pf 
 
 def output_file_init_simu_pop(
     arr_sample,arr_mol,arr_rates,arr_pump,tmin,tmax,file) : 
@@ -75,6 +74,9 @@ def output_file_init_simu_pop(
 
     ofile = open(file,'a+')
 
+
+
+
     # write on file each parameter of an array
     def write_params(title,name_arr,arr,unit_arr) : 
         
@@ -96,12 +98,31 @@ def output_file_init_simu_pop(
 
         return 0
 
+    # write user's computer informations
+    def write_user_infos() : 
+
+        # print current day and time 
+        ofile.write('@date : %s\n\n' % datetime.now())
+
+        # print computer's infos
+        uname = pf.uname()
+        ofile.write('@System: %s\n' % uname.system)
+        ofile.write('@Computer''s name: %s\n' % uname.node)
+        ofile.write('@Release: %s\n' % uname.release)
+        ofile.write('@Version: %s\n' % uname.version)
+        ofile.write('@Machine: %s\n' % uname.machine)
+        ofile.write('@Processor: %s\n' % uname.processor)
+
+        return 0
+
+
+
+
 
 
     ofile.write('\n\n')
 
-    # write current day and time
-    ofile.write('@date : %s' % datetime.now())
+    write_user_infos()
 
     ofile.write('\n\n')
 
