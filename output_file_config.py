@@ -1,5 +1,6 @@
 
 from datetime import datetime
+from os import write
 
 
 def output_file_init_simu_pop(
@@ -72,8 +73,31 @@ def output_file_init_simu_pop(
     ]
 
 
-
     ofile = open(file,'a+')
+
+    # write on file each parameter of an array
+    def write_params(title,name_arr,arr,unit_arr) : 
+        
+        ofile.write(f'@{title}\n')
+        ofile.write('-------------------------\n')
+
+        if len(arr) > 1 : 
+            for ii in range(len(name_arr)) : 
+                ofile.write('%s = %.3e %s\n' 
+                % (name_arr[ii],arr[ii],unit_arr[ii]))
+        
+        # Exception handling (ex: arr_pump)
+        else : 
+            ofile.write('%s = %.3e %s\n' 
+                % (name_arr[0],arr[0],unit_arr[0]))
+
+        ofile.write('-------------------------\n')
+        ofile.write('\n\n')
+
+        return 0
+
+
+
     ofile.write('\n\n')
 
     # write current day and time
@@ -81,39 +105,10 @@ def output_file_init_simu_pop(
 
     ofile.write('\n\n')
 
-    ofile.write('@molecule parameters\n')
-    ofile.write('-------------------------\n')
-    for ii in range(len(name_arr_mol)) : 
-        ofile.write('%s = %.3e %s\n' 
-        % (name_arr_mol[ii],arr_mol[ii],unit_arr_mol[ii]))
-    ofile.write('-------------------------\n')
-    ofile.write('\n\n')
-
-
-    ofile.write('@sample parameters\n')
-    ofile.write('-------------------------\n')
-    for ii in range(len(name_arr_sample)) : 
-        ofile.write('%s = %.3e %s\n' 
-        % (name_arr_sample[ii],arr_sample[ii],unit_arr_sample[ii]))
-    ofile.write('-------------------------\n')
-    ofile.write('\n\n')
-
-
-    ofile.write('@rate parameters\n')
-    ofile.write('-------------------------\n')
-    for ii in range(len(name_arr_rates)) : 
-        ofile.write('%s = %.3e %s\n' 
-        % (name_arr_rates[ii],arr_rates[ii],unit_arr_rates[ii]))
-    ofile.write('-------------------------\n')
-    ofile.write('\n\n')
-
-
-    ofile.write('@pump parameters\n')
-    ofile.write('-------------------------\n')
-    ofile.write('%s = %.3e %s\n' 
-        % (name_arr_pump[0],arr_pump[0],unit_arr_pump[0]))
-    ofile.write('-------------------------\n')
-    ofile.write('\n\n')
+    write_params('molecule parameters',name_arr_mol,arr_mol,unit_arr_mol)
+    write_params('sample parameters',name_arr_sample,arr_sample,unit_arr_sample)
+    write_params('rates parameters',name_arr_rates,arr_rates,unit_arr_rates)
+    write_params('pump parameters',name_arr_pump,arr_pump,unit_arr_pump)
 
 
 
