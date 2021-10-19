@@ -1,6 +1,5 @@
 
-from datetime import datetime
-import platform as pf 
+
 
 def output_file_init_simu_pop(
     arr_sample,arr_mol,arr_rates,arr_pump,tmin,tmax,file) : 
@@ -102,12 +101,14 @@ def output_file_init_simu_pop(
     def write_user_infos() : 
 
         # print current day and time 
+        from datetime import datetime
         ofile.write('@date : %s\n\n' % datetime.now())
 
         # print computer's infos
-        uname = pf.uname()
+        import platform
+        uname = platform.uname()
         ofile.write('@System: %s\n' % uname.system)
-        ofile.write('@Computer''s name: %s\n' % uname.node)
+        ofile.write('@Computer name: %s\n' % uname.node)
         ofile.write('@Release: %s\n' % uname.release)
         ofile.write('@Version: %s\n' % uname.version)
         ofile.write('@Machine: %s\n' % uname.machine)
@@ -138,7 +139,6 @@ def output_file_init_simu_pop(
     ofile.write('-------------------------\n')
     ofile.write('Starting time : %.3e s\n' % tmin)
     ofile.write('Ending time   : %.3e s\n' % tmax)
-    # ofile.write('Number of points : %d\n' % len(vec_time))
     ofile.write('-------------------------\n')
     ofile.write('\n\n')
 

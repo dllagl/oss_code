@@ -3,7 +3,6 @@
 
 
 # external libraries 
-from datetime import time
 from scipy.integrate import odeint
 
 
@@ -85,6 +84,7 @@ def simu_fixed_params(user_sys_choice) :
                 const_pump[0],
                 const_params,
                 output_file_path,
+                config_file_path,
                 user_sys_choice,
                 time_step_counter,
                 time_step_unit,
@@ -194,6 +194,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
                     const_pump[0],
                     const_params,
                     output_file_path,
+                    config_file_path,
                     user_sys_choice,
                     time_step_counter,
                     time_step_unit,
