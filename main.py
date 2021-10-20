@@ -6,7 +6,6 @@ import user_interface as ui
 import user_choice as uc
 import simu_populations as spop
 
-#test
 # terminal message when the program gets executed
 ui.welcome()
 
@@ -15,15 +14,17 @@ ui.welcome()
 ui.print_available_systems()
 user_sys_choice = eval(input('Which system (1,2,3,4) ? '))
 
-print(
+
+
+# simulations without lasing 
+if (user_sys_choice==1) or (user_sys_choice==2) :
+
+    print(
 '''
 1) one simulation with one set of parameters (to be customed in imp_param.py)
 2) n simulations for n values of one parameter (ex : kisc = 1e6, 1e7, 1e8)
 '''
 )
-
-# simulations without lasing 
-if (user_sys_choice==1) or (user_sys_choice==2) :
 
     user_simu_choice = eval(input('Which simulation (1,2) ? '))
 
@@ -42,5 +43,6 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
         print('Corresponding simulations not available. Please restart.')
 
 # lasing simulations (to do)
-# if (user_sys_choice==3) or (user_sys_choice==4) :
+if (user_sys_choice==3) or (user_sys_choice==4) :
+    print('Currently in development, try later !')
 

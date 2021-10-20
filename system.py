@@ -5,7 +5,7 @@
 import numpy as np 
 
 # external files 
-import constants as cs
+import phys_constants as cs
 
 
 

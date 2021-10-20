@@ -5,7 +5,7 @@
 import numpy as np 
 
 # external files 
-import constants as cs
+import phys_constants as cs
 
 
 
@@ -72,7 +72,7 @@ def param_sample(molar_mass) :
     
     doping          = 1.0
     rho_matrix      = 1.15e3
-    nbr_active_mol  = (doping*rho_matrix*cs.C_AVO) / molar_mass
+    nbr_active_mol  = (doping*rho_matrix* cs.C_AVO) / molar_mass
     absorption      = 0.8
     thickness       = 200e-9
     alpha           = - np.log(1-absorption) / thickness
