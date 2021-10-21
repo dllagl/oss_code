@@ -52,7 +52,7 @@ def simu_fixed_params(user_sys_choice) :
     become too heavy.
     '''
     time_step_unit    = 1e-6  # time block of 1 us
-    nbr_pts_per_step  = 1e4   # 2000 pts per us
+    nbr_pts_per_step  = 2e3   # 2000 pts per us
 
     # integration time smaller that time step handling 
     if tmax < time_step_unit : time_step_unit = tmax
