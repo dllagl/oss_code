@@ -7,7 +7,7 @@ from scipy.integrate import odeint
 
 
 # external files 
-import system     as sys 
+import system_populations as sys 
 import imp_param  as imp 
 import simu_populations_solver as sv 
 import output_file_config as of

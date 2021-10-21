@@ -126,6 +126,36 @@ def param_rates(nbr_dye_molecules) :
 
 
 
+# resonator parameters
+def param_resonator(lambda_fluo) : 
+
+    '''
+    gama      : confinement factor of the lasing mode
+    qfactor   : quality factor of the resonator
+    nu        : frequency of the lasing mode (s-1)
+    tau_cav   : lifetime of photons in the resonator (s)
+    pump_area : area of the pump on the gain media (m2)
+    spont     : spontanenous emission (W.m-2)
+    '''
+
+    gama      = 0.5
+    qfactor   = 2e3
+    nu        = cs.C_C / lambda_fluo
+    tau_cav   = qfactor / (2*cs.C_PI*nu)
+    pump_area = 4.5e-9
+    spont     = cs.C_HC*cs.C_C / ( lambda_fluo*pump_area**(3/2) )
+
+    return [gama,qfactor,nu,tau_cav,pump_area,spont]
+
+
+
+
+
+
+
+
+
+
 
 # pump parameters
 def param_pump() : 
@@ -134,7 +164,7 @@ def param_pump() :
     pump fluence : fluence of the pump (kW/cm2) * 1e7 (W/m2)
     '''
 
-    pump_fluence    = 10 * 1e7
+    pump_fluence = 10 * 1e7
 
     return [pump_fluence]
 

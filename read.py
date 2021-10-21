@@ -3,15 +3,16 @@ import matplotlib.pyplot as plt
 
 
 
-def read(file) : 
+def read_laser(file) : 
 
-    data = np.loadtxt(file)
+    data = np.loadtxt(file,skiprows=5)
     time = data[:,0]
     fluo = data[:,2]
+    amp  = data[:,3]
 
     plt.plot(time,fluo)
+    plt.yscale('log')
 
 
-read('output/data_2.out')
-read('output/data.out')
+read_laser('output/data.out')
 plt.show()
