@@ -36,10 +36,11 @@ def simu_fixed_params(user_sys_choice) :
     ui.delete_file_if_exists([output_file_path,config_file_path])
 
     # output config files where input parameters are stored
-    of.output_file_init_simu_pop(
+    of.output_file_init_simu_laser(
         const_sample,
         const_molecule,
         const_rates,
+        const_struct,
         const_pump,
         tmin,tmax,
         config_file_path

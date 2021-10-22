@@ -19,6 +19,10 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
         ofile.write('%s %13s %10s %11s %11s\n' % ('time', 'S0', 'S1', 'T1', 'I'))
 
 
+
+
+
+
     #---------------------------------------------------#
     #---------------------------------------------------#
     # integrate first time for relaxation oscillation 
@@ -54,6 +58,9 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
 
     #---------------------------------------------------#
     #---------------------------------------------------#
+
+
+
 
 
 
@@ -103,8 +110,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
     #---------------------------------------------------#
 
     
+
+
     ofile.close()
-
-
-
     return 0
