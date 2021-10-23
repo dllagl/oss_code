@@ -1,79 +1,106 @@
 
 
+
+# molecule name/unit array
+name_arr_mol = [
+    'molar_mass',
+    'lambda_abs',
+    'lambda_fluo',
+    'tau_f',
+    'tau_t',
+    'sigma_em',
+    'sigma_S1S2_pump',
+    'sigma_S1S2_laser',
+    'sigma_T1T2_pump',
+    'sigma_T1T2_laser',
+    'kSI'
+]
+unit_arr_mol = [
+    'g/m3',
+    'm',
+    'm',
+    's',
+    's',
+    'm2',
+    'm2',
+    'm2',
+    'm2',
+    'm2',
+    ''
+]
+
+
+# sample name/unit array
+name_arr_sample = [
+    'doping',
+    'nbr_active_mol',
+    'sigma_abs_pump',
+    'neff'
+]
+unit_arr_sample = [
+    '',
+    'm-3',
+    'm2',
+    '',
+]
+
+
+# rates name/unit array
+name_arr_rates = [
+    'kisc',
+    'ksta',
+    'kssa',
+    'ktta'
+]
+unit_arr_rates = [
+    's-1',
+    'cm3.s-1',
+    'cm3.s-1',
+    'cm3.s-1',
+]
+
+
+# resonator name/unit array
+name_arr_struct = [
+    'gamma',
+    'Q-factor',
+    'nu_lasing',
+    'tau_cav',
+    'pump_area',
+    'spont'
+]
+unit_arr_struct = [
+    '',
+    '',
+    's-1',
+    's',
+    'm2',
+    'W/m2'
+]
+
+
+# pump name/unit array
+name_arr_pump = [
+    'pump_fluence'
+]
+unit_arr_pump = [
+    'W.m-2'
+]
+
+
+
+
+
+
+
+
+
 # config file for population simulations
 def output_file_init_simu_pop(
     arr_sample,arr_mol,arr_rates,arr_pump,tmin,tmax,file) : 
 
-    name_arr_mol = [
-        'molar_mass',
-        'lambda_abs',
-        'lambda_fluo',
-        'tau_f',
-        'tau_t',
-        'sigma_em',
-        'sigma_S1S2_pump',
-        'sigma_S1S2_laser',
-        'sigma_T1T2_pump',
-        'sigma_T1T2_laser',
-        'kSI'
-    ]
-    unit_arr_mol = [
-        'g/m3',
-        'm',
-        'm',
-        's',
-        's',
-        'm2',
-        'm2',
-        'm2',
-        'm2',
-        'm2',
-        ''
-    ]
-
-
-
-    name_arr_sample = [
-        'doping',
-        'nbr_active_mol',
-        'sigma_abs_pump',
-        'neff'
-    ]
-    unit_arr_sample = [
-        '',
-        'm-3',
-        'm2',
-        '',
-    ]
-
-
-
-    name_arr_rates = [
-        'kisc',
-        'ksta',
-        'kssa',
-        'ktta'
-    ]
-    unit_arr_rates = [
-        's-1',
-        'cm3.s-1',
-        'cm3.s-1',
-        'cm3.s-1',
-    ]
-
-
-
-    name_arr_pump = [
-        'pump_fluence'
-    ]
-    unit_arr_pump = [
-        'W.m-2'
-    ]
-
 
     ofile = open(file,'a+')
-
-
 
 
     # write on file each parameter of an array
@@ -115,10 +142,6 @@ def output_file_init_simu_pop(
         ofile.write('@Processor: %s\n' % uname.processor)
 
         return 0
-
-
-
-
 
 
     ofile.write('\n\n')
@@ -160,95 +183,8 @@ def output_file_init_simu_pop(
 def output_file_init_simu_laser(
     arr_sample,arr_mol,arr_rates,arr_struct,arr_pump,tmin,tmax,file) : 
 
-    name_arr_mol = [
-        'molar_mass',
-        'lambda_abs',
-        'lambda_fluo',
-        'tau_f',
-        'tau_t',
-        'sigma_em',
-        'sigma_S1S2_pump',
-        'sigma_S1S2_laser',
-        'sigma_T1T2_pump',
-        'sigma_T1T2_laser',
-        'kSI'
-    ]
-    unit_arr_mol = [
-        'g/m3',
-        'm',
-        'm',
-        's',
-        's',
-        'm2',
-        'm2',
-        'm2',
-        'm2',
-        'm2',
-        ''
-    ]
-
-
-
-    name_arr_sample = [
-        'doping',
-        'nbr_active_mol',
-        'sigma_abs_pump',
-        'neff'
-    ]
-    unit_arr_sample = [
-        '',
-        'm-3',
-        'm2',
-        '',
-    ]
-
-
-
-    name_arr_rates = [
-        'kisc',
-        'ksta',
-        'kssa',
-        'ktta'
-    ]
-    unit_arr_rates = [
-        's-1',
-        'cm3.s-1',
-        'cm3.s-1',
-        'cm3.s-1',
-    ]
-
-
-    name_arr_struct = [
-        'gamma',
-        'Q-factor',
-        'nu_lasing',
-        'tau_cav',
-        'pump_area',
-        'spont'
-    ]
-    unit_arr_struct = [
-        '',
-        '',
-        's-1',
-        's',
-        'm2',
-        'W/m2'
-    ]
-
-
-
-    name_arr_pump = [
-        'pump_fluence'
-    ]
-    unit_arr_pump = [
-        'W.m-2'
-    ]
-
 
     ofile = open(file,'a+')
-
-
-
 
     # write on file each parameter of an array
     def write_params(title,name_arr,arr,unit_arr) : 
@@ -289,9 +225,6 @@ def output_file_init_simu_laser(
         ofile.write('@Processor: %s\n' % uname.processor)
 
         return 0
-
-
-
 
 
 
