@@ -18,6 +18,8 @@ import user_choice as uc
 # simulations for one set of parameters
 def simu_fixed_params(user_sys_choice) : 
 
+    # no lasing equation in this config
+    _is_laser = False
 
     # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
@@ -39,11 +41,12 @@ def simu_fixed_params(user_sys_choice) :
     ui.delete_file_if_exists([output_file_path,config_file_path])
 
     # output config files where input parameters are stored
-    of.output_file_init_simu_pop(
+    of.output_file_init_simu_laser(
         const_params,
         const_pump,
         tmin,tmax,
-        config_file_path
+        config_file_path,
+        _is_laser
         )
 
 
@@ -111,6 +114,8 @@ def simu_fixed_params(user_sys_choice) :
 
 def simu_multiple_params(user_sys_choice, var_idx, var_arr) : 
 
+    # no lasing in this config
+    _is_laser = False
 
     # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
@@ -179,11 +184,12 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
         ui.delete_file_if_exists([output_file_path,config_file_path])
 
         # output config files where input parameters are stored
-        of.output_file_init_simu_pop(
+        of.output_file_init_simu_laser(
         const_params,
         const_pump,
         tmin,tmax,
-        config_file_path
+        config_file_path,
+        _is_laser
         )
 
         sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],

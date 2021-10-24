@@ -95,103 +95,14 @@ unit_arr_pump = [
 
 
 
-# config file for population simulations
-def output_file_init_simu_pop(arr_global,arr_pump,tmin,tmax,file) : 
-
-
-    # extract different parameters arrays from arr_global
-    arr_sample = arr_global[0:4]
-    arr_mol    = arr_global[4:15] 
-    arr_rates  = arr_global[15:19] 
-
-
-    ofile = open(file,'a+')
-
-
-    # write on file each parameter of an array
-    def write_params(title,name_arr,arr,unit_arr) : 
-        
-        ofile.write(f'@{title}\n')
-        ofile.write('-------------------------\n')
-
-        if len(arr) > 1 : 
-            for ii in range(len(name_arr)) : 
-                ofile.write('%s = %.3e %s\n' 
-                % (name_arr[ii],arr[ii],unit_arr[ii]))
-        
-        # Exception handling (ex: arr_pump)
-        else : 
-            ofile.write('%s = %.3e %s\n' 
-                % (name_arr[0],arr[0],unit_arr[0]))
-
-        ofile.write('-------------------------\n')
-        ofile.write('\n\n')
-
-        return 0
-
-    # write user's computer informations
-    def write_user_infos() : 
-
-        # print current day and time 
-        from datetime import datetime
-        ofile.write('@date : %s\n\n' % datetime.now())
-
-        # print computer's infos
-        import platform
-        uname = platform.uname()
-        ofile.write('@System: %s\n' % uname.system)
-        ofile.write('@Computer name: %s\n' % uname.node)
-        ofile.write('@Release: %s\n' % uname.release)
-        ofile.write('@Version: %s\n' % uname.version)
-        ofile.write('@Machine: %s\n' % uname.machine)
-        ofile.write('@Processor: %s\n' % uname.processor)
-
-        return 0
-
-
-    ofile.write('\n\n')
-
-    write_user_infos()
-
-    ofile.write('\n\n')
-
-    write_params('molecule parameters',name_arr_mol,arr_mol,unit_arr_mol)
-    write_params('sample parameters',name_arr_sample,arr_sample,unit_arr_sample)
-    write_params('rates parameters',name_arr_rates,arr_rates,unit_arr_rates)
-    write_params('pump parameters',name_arr_pump,arr_pump,unit_arr_pump)
-
-
-
-
-    ofile.write('@time parameters\n')
-    ofile.write('-------------------------\n')
-    ofile.write('Starting time : %.3e s\n' % tmin)
-    ofile.write('Ending time   : %.3e s\n' % tmax)
-    ofile.write('-------------------------\n')
-    ofile.write('\n\n')
-
-
-    ofile.close()
-    return 0
-
-
-
-
-
-
-
-
-
-
-
-# config file for laser simulations
-def output_file_init_simu_laser(arr_global,arr_pump,tmin,tmax,file) : 
+# config file for populations and laser simulations
+def output_file_init_simu_laser(arr_global,arr_pump,tmin,tmax,file,bool_laser) : 
 
     # extract different parameters arrays from arr_global
     arr_sample = arr_global[0:4]
     arr_mol    = arr_global[4:15] 
     arr_rates  = arr_global[15:19] 
-    arr_struct = arr_global[19:25]
+    if bool_laser : arr_struct = arr_global[19:25] 
 
     ofile = open(file,'a+')
 
@@ -246,7 +157,7 @@ def output_file_init_simu_laser(arr_global,arr_pump,tmin,tmax,file) :
     write_params('molecule parameters',name_arr_mol,arr_mol,unit_arr_mol)
     write_params('sample parameters',name_arr_sample,arr_sample,unit_arr_sample)
     write_params('rates parameters',name_arr_rates,arr_rates,unit_arr_rates)
-    write_params('cavity parameters',name_arr_struct,arr_struct,unit_arr_struct)
+    if bool_laser : write_params('cavity parameters',name_arr_struct,arr_struct,unit_arr_struct)
     write_params('pump parameters',name_arr_pump,arr_pump,unit_arr_pump)
 
 

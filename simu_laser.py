@@ -14,6 +14,8 @@ import user_choice as uc
 # simulations for one set of parameters
 def simu_fixed_params(user_sys_choice) : 
 
+    # lasing is considered in this config
+    _is_laser = True
 
     # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
@@ -40,7 +42,8 @@ def simu_fixed_params(user_sys_choice) :
         const_params,
         const_pump,
         tmin,tmax,
-        config_file_path
+        config_file_path,
+        _is_laser
         )
 
 
