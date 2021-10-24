@@ -18,6 +18,9 @@ user_sys_choice = eval(input('Which system (1,2,3,4) ? '))
 
 
 
+
+
+
 # simulations without lasing 
 if (user_sys_choice==1) or (user_sys_choice==2) :
 
@@ -47,6 +50,11 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 
 
 
+
+
+
+
+
 # lasing simulations (to do)
 if (user_sys_choice==3) or (user_sys_choice==4) :
 
@@ -64,7 +72,6 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
-        print('Ongoing development, try later !')
         idx     = uc.choose_param_laser()
         idx_arr = uc.choose_param_values()
         slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
