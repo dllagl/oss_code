@@ -3,13 +3,12 @@
 Terminal based application to study the energy state population dynamics of organic lasing devices.
 
 ## Recommanded tools
-
 - Git 
 - A text editor (e.g. [VS code](https://code.visualstudio.com/)) for UNIX system users
 - A Python IDE (e.g. [Spyder](https://www.spyder-ide.org/)) for Windows users
 
-## Required libraries
-
+## Required 
+- Python 3.X
 - numpy >= 1.21.2
 - matplotlib >= 3.3.3
 - scipy.integrate >= 1.6.0
