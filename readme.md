@@ -59,6 +59,6 @@ directory with the output data files in it.
 #### 2. Run it your way
 
 Other than implementing your own functions and fork the project, the only interation you need to have 
-with the code is when changing the initial inputs in the _imp_param.py_ python file. each python file can 
+with the code is when changing the initial inputs in the `imp_param.py` python file. each python file can 
 be opened with a typical text editor. 
 
