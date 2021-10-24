@@ -37,10 +37,7 @@ def simu_fixed_params(user_sys_choice) :
 
     # output config files where input parameters are stored
     of.output_file_init_simu_laser(
-        const_sample,
-        const_molecule,
-        const_rates,
-        const_struct,
+        const_params,
         const_pump,
         tmin,tmax,
         config_file_path

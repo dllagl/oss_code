@@ -33,15 +33,15 @@ unit_arr_mol = [
 # sample name/unit array
 name_arr_sample = [
     'doping',
-    'nbr_active_mol',
     'sigma_abs_pump',
-    'neff'
+    'neff',
+    'nbr_active_mol'
 ]
 unit_arr_sample = [
     '',
-    'm-3',
     'm2',
     '',
+    'm-3',
 ]
 
 
@@ -96,8 +96,13 @@ unit_arr_pump = [
 
 
 # config file for population simulations
-def output_file_init_simu_pop(
-    arr_sample,arr_mol,arr_rates,arr_pump,tmin,tmax,file) : 
+def output_file_init_simu_pop(arr_global,arr_pump,tmin,tmax,file) : 
+
+
+    # extract different parameters arrays from arr_global
+    arr_sample = arr_global[0:4]
+    arr_mol    = arr_global[4:15] 
+    arr_rates  = arr_global[15:19] 
 
 
     ofile = open(file,'a+')
@@ -180,9 +185,13 @@ def output_file_init_simu_pop(
 
 
 # config file for laser simulations
-def output_file_init_simu_laser(
-    arr_sample,arr_mol,arr_rates,arr_struct,arr_pump,tmin,tmax,file) : 
+def output_file_init_simu_laser(arr_global,arr_pump,tmin,tmax,file) : 
 
+    # extract different parameters arrays from arr_global
+    arr_sample = arr_global[0:4]
+    arr_mol    = arr_global[4:15] 
+    arr_rates  = arr_global[15:19] 
+    arr_struct = arr_global[19:25]
 
     ofile = open(file,'a+')
 
