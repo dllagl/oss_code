@@ -24,7 +24,7 @@ If you don't use an integrated development environement, follow these instructio
 
 #### 1. Install pip 
 
-Download this python script [get-pip.py](https://bootstrap.pypa.io/get-pip.py) and execute it,
+Download this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it,
 ```bash
 cd path/to/get-pip.py
 python get-pip.py
