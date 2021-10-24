@@ -127,7 +127,7 @@ def param_rates(nbr_dye_molecules) :
 
 
 # resonator parameters
-def param_resonator(lambda_fluo) : 
+def param_resonator(lambda_fluo, qfactor = 2e3) : 
 
     '''
     gama      : confinement factor of the lasing mode
@@ -139,7 +139,6 @@ def param_resonator(lambda_fluo) :
     '''
 
     gama      = 0.5
-    qfactor   = 2e3
     nu        = cs.C_C / lambda_fluo
     tau_cav   = qfactor / (2*cs.C_PI*nu)
     pump_area = 4.5e-9

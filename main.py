@@ -36,7 +36,7 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
-        idx     = uc.choose_param()
+        idx     = uc.choose_param_populations()
         idx_arr = uc.choose_param_values()
         spop.simu_multiple_params(user_sys_choice,idx,idx_arr)
 
@@ -65,9 +65,9 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
         print('Ongoing development, try later !')
-        # idx     = uc.choose_param()
-        # idx_arr = uc.choose_param_values()
-        # slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
+        idx     = uc.choose_param_laser()
+        idx_arr = uc.choose_param_values()
+        slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
 
     # error handling
     else : 

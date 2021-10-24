@@ -54,7 +54,7 @@ Default (Press Enter): data.params
 
 # choose which variable to iterate on in 
 # simu_multiple_params() function
-def choose_param() : 
+def choose_param_populations() : 
     print(
 '''
 ---------------------------------
@@ -77,6 +77,42 @@ def choose_param() :
 16) ksta (m3.s-1)
 17) kssa (m3.s-1)
 18) ktta (m3.s-1)
+---------------------------------
+''')
+    print('Which variable du you want to iterate ?')
+    return int(input("Enter its corresponding number : "))
+
+
+
+
+
+def choose_param_laser() : 
+    print(
+'''
+---------------------------------
+0)  doping
+1)  sigma_abs (m2)
+2)  n_eff
+3)  nbr_active_molecule (m-3)
+4)  molar_mass (g/mol)
+5)  lambda_abs (m)
+6)  lambda_fluo (m)
+7)  tau_f (s)
+8)  tau_t (s)
+9)  sigma_em (m2)
+10) sigma_S1S2_pump (m2)
+11) sigma_S1S2_laser (m2)
+12) sigma_T1T2_pump (m2)
+13) sigma_T1T2_laser (m2)
+14) kSI
+15) kisc (s-1) 
+16) ksta (m3.s-1)
+17) kssa (m3.s-1)
+18) ktta (m3.s-1)
+19) gamma
+20) Q-factor
+//
+23) pump_area (m2)
 ---------------------------------
 ''')
     print('Which variable du you want to iterate ?')
