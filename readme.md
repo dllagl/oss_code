@@ -22,7 +22,7 @@ numpy --version
 
 If you don't use an integrated development environement, follow these instructions to install missing librairies.
 
-#### 1. Install pip 
+### 1. Install pip 
 
 Download this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it,
 ```bash
@@ -35,7 +35,7 @@ sudo apt update
 sudo apt install python3-pip
 ```
 
-#### 2. Install some libraries 
+### 2. Install some libraries 
 ```bash 
 pip install --m numpy 
 ```
@@ -50,16 +50,21 @@ git clone https://github.com/dllagl/tui.git
 
 ## Run simulations 
 
-#### 1. Execute OSS source code
+### 1. Execute OSS source code
 
 Once you are in the 'oss' folder and you have the required libraries you can execute the OSS code. 
 ```bash 
 python main.py 
 ```
-If you choose the default names for the folders and files, it will create an 'output' folder in the same 
-directory with the output data files in it.
 
-#### 2. Run it your way
+This will automatically create a folder name after what you enter in the terminal prompt (`output` by default) which will contain : 
+-  `data.out` which contain the output datas (time, populations ..)
+- `data.params` which contain the configuration of the simulation (date, computer's infos and contants)
+
+Examples of those files can be found in the `refs` folder for each available simulation.
+Note that `data` is the default name. It is easily customizable when going through the terminal prompt.
+
+### 2. Run it your way
 
 Other than implementing your own functions and fork the project, the only interation you need to have 
 with the code is when changing the initial inputs in the `imp_param.py` python file. 
@@ -95,3 +100,8 @@ def param_molecule() :
 Each python file can 
 be opened with a typical text editor. 
 
+
+### 3. Read the output files 
+
+A python script `read.py` can be found in the `refs` folder alongside output files to guide the Python beginner to plot the time-resolved simulations of the different populations or the lasing intensity. 
+Since all datas are written in text file, they still can be processed by any language.
