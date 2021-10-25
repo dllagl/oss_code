@@ -18,7 +18,8 @@ def sys_equations_two_pop(s, t, doping, Ip, param_vec) :
     '''
 
     doping,sigma_abs_p, n, N,\
-    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
+    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,\
+    sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
     kISC, kSTA, kSSA, kTTA = param_vec
 
 
@@ -67,7 +68,8 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
 
     # equations parameters
     doping,sigma_abs_p, n, N,\
-    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
+    molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,\
+    sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
     kISC, kSTA, kSSA, kTTA = param_vec
 
 
@@ -94,6 +96,7 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
             - ( kSTA * s[1] * s[2] ) 
             + ( cs.C_ZETA * kTTA * s[2] * s[2] )
             - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
+            - ( sigma_S1S2_pump * (1-kSI) * lambda_abs * Ip * s[1] / cs.C_HC )
     )
 
     # T1 equation
@@ -102,6 +105,8 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
             - ( s[2] / tau_t )
             + ( kSSA * s[1] * s[1] * (1-cs.C_ZETA) )
             - ( (1+cs.C_ZETA) * kTTA * s[2] * s[2] )
+            - ( sigma_T1T2_pump * lambda_abs * Ip * s[2] / cs.C_HC )
+            + ( sigma_S1S2_pump * (1-kSI) * lambda_abs * Ip * s[1] / cs.C_HC )
     )
 
     ########################################################

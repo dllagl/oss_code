@@ -110,6 +110,7 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
             + ( cs.C_ZETA * kTTA * s[2] * s[2] )
             - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
             - ( s[1] * sigma_em * s[3] * lambda_fluo / cs.C_HC )
+            - ( sigma_S1S2_pump * (1-kSI) * lambda_abs * Ip * s[1] / cs.C_HC )
     )
 
     # T1 equation
@@ -118,6 +119,8 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
             - ( s[2] / tau_t )
             + ( kSSA * s[1] * s[1] * (1-cs.C_ZETA) )
             - ( (1+cs.C_ZETA) * kTTA * s[2] * s[2] )
+            + ( sigma_S1S2_pump * (1-kSI) * lambda_abs * Ip * s[1] / cs.C_HC )
+            - ( sigma_T1T2_pump * lambda_abs * Ip * s[2] / cs.C_HC )
     )
 
     # intensity equation
