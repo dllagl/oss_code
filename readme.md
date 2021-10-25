@@ -3,17 +3,37 @@
 Terminal based application to study the energy state population dynamics of organic lasing devices.
 
 ## Tables of contents
-1. Recommended tools
-2. Required tools
-3. Installing missing libraries
-4. Obtain the source code
-5. Run simulations 
+1. [Introduction](#introduction)
+2. [Copyright and license](#copyright-and--license)
+3. [Recommended tools](#recommended-tools)
+4. [Required modules](#required-modules)
+5. [Install missing libraries](#install-missing-libraries)
+6. [Obtain the source code](#Obtain-the-source-code)
+7. [Run simulations](#run-simulations) 
+8. [Useful ressources](#useful-ressources)
+
+
+## Introduction 
+The OSS code can be used to simulate the dynamics of the energy states populations of organic molecules. Thanks to its relative simplicity, it can also easily be used to study the evolution of the photon density inside a resonator, from DFBs to VCSELs.
+Moreover, an original algorithm is implemented to evaluate the lasing regime (none, pulse, CW) in a given photophysical and optical configuration. 
+
+The details concerning the core of the equations and the different algorithms used in OSS are extensively discussed in the [white sheet](doc/whitesheet.pdf) of the project and in the cited [published papers](#useful-ressources).
+
+The project folder is structured as follows:
+- Python scripts : contain the source code of the project
+- Refs : example of the output datas processed by the program for each available simulation.
+- Doc : whitesheet of the project and scientifics references to look over.
+
+## Copyright and license
+The OSS project is licensed under the GNU General Public License version 3. The details of this license can be found in the file `LICENSE.md`.
+
+
 ## Recommended tools
 
 - Git 
 - A text editor (e.g. [VS code](https://code.visualstudio.com/)) or a Python IDE (e.g. [Spyder](https://www.spyder-ide.org/))
 
-## Required 
+## Required modules
 - Python 3.X
 - numpy >= 1.21.2
 - matplotlib >= 3.3.3
@@ -23,8 +43,8 @@ Terminal based application to study the energy state population dynamics of orga
 
 NOTE : If you use an integrated developement environement such as Spyder, you should not be concerned by the lake of libraries on your computer. 
 
-Although basic ones are pre-installed in most Linux distributions or in MacOS, specific ones sometimes require manual installation.
-To check if the library `example` is installed on your computer, run the following command on a terminal:
+Although basic modules are pre-installed in most Linux distributions or in MacOS, specific ones sometimes require manual installation.
+To check if the module `example` is installed on your computer, run the following command on a terminal:
 ```bash
 pip freeze | grep <example>
 ```
@@ -46,12 +66,11 @@ or install it from your package manager.
 sudo apt update 
 sudo apt install python3-pip
 ```
-The syntax will be similar for most Linux distribution or in MacOS.
 
 ### 2. Install some libraries 
 To install the library `example`, run this command from anywhere on a terminal:
 ```bash 
-pip install --m example 
+pip install --m <example> 
 ```
 
 
@@ -82,40 +101,27 @@ Note that `data` is the default name and is easily customizable when going throu
 
 Other than implementing your own functions and fork the project, the only interation you need to have 
 with the code is when changing the initial inputs in the `imp_param.py` python file. 
-
-```python
-# molecule intrinsic parameters
-def param_molecule() :
-
-    '''
-    molar mass  : (kg/mol)
-    lambda_abs  : absorption at the pump wavelength (m)
-    lambda_fluo : mean fluorescence wavelength (m)
-    tau_f       : fluorescence lifetime (s)
-    tau_t       : triplet lifetime (s)
-    sigma_em    : absorption cross section at the laser wavelength (m2)
-    kSI         : probability for one molecule in Sn to fall down to S1
-    '''
-
-    molar_mass       = 339.44e-3  
-    lambda_abs       = 408e-9
-    lambda_fluo      = 480e-9
-    tau_f            = 1.28e-9
-    tau_t            = 175e-6
-    sigma_em         = 2.8e-20
-    kSI              = 0.9
-
-    arr= [molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,
-        sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,
-        sigma_T1T2_pump,sigma_T1T2_laser,kSI]
-
-    return arr
-```
-Each python file can 
-be opened with a typical text editor. 
+Python scripts can be opened with a classic text editor. 
 
 
 ### 3. Read the output files 
 
 A python script `read.py` can be found in the `refs` folder alongside output files to guide the Python beginners to plot the results of their simulations. 
 Besides, all datas are written in text files so they can be processed in any language.
+
+
+## Useful ressources
+
+### 1. Scientific papers
+
+Here are some peer-reviewed scientific papers, Ph.D. thesis or books that work with the system of equations implemented in OSS : 
+- ref1
+- ref2
+- ref3
+
+
+### 2. Instructional videos
+
+In order to help new users to get the most out of OSS, a few videos have been recorded.
+- Windows :
+- UNIX : 
