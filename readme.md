@@ -2,29 +2,41 @@
 
 Terminal based application to study the energy state population dynamics of organic lasing devices.
 
-## Recommanded tools
+## Tables of contents
+1. Recommended tools
+2. Required tools
+3. Installing missing libraries
+4. Obtain the source code
+5. Run simulations 
+## Recommended tools
+
 - Git 
-- A text editor (e.g. [VS code](https://code.visualstudio.com/)) for UNIX system users
-- A Python IDE (e.g. [Spyder](https://www.spyder-ide.org/)) for Windows users
+- A text editor (e.g. [VS code](https://code.visualstudio.com/)) or a Python IDE (e.g. [Spyder](https://www.spyder-ide.org/))
 
 ## Required 
 - Python 3.X
 - numpy >= 1.21.2
 - matplotlib >= 3.3.3
-- scipy.integrate >= 1.6.0
+- scipy >= 1.6.0
 - platform >= 2.0.2
 - os 
 
-To check if libraries are installed on your computer, run the following command. 
-```bash
-numpy --version
-```
+NOTE : If you use an integrated developement environement such as Spyder, you should not be concerned by the lake of libraries on your computer. 
 
-If you don't use an integrated development environement, follow these instructions to install missing librairies.
+Although basic ones are pre-installed in most Linux distributions or in MacOS, specific ones sometimes require manual installation.
+To check if the library `example` is installed on your computer, run the following command on a terminal:
+```bash
+pip freeze | grep <example>
+```
+If PIP is not installed, look for the required module in `/usr/lib/python3.X/site-packages` or follow the next section to install PIP.
+
+## Install missing libraries
 
 ### 1. Install pip 
 
-Download this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it,
+PIP is a terminal tool used to ease the installation of external packages or libraries. If you want more details, look over the [documentation](https://docs.python.org/fr/3.6/installing/index.html).
+There are two main ways to install it on your computer. You can download either this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it by running these command in a terminal:
+
 ```bash
 cd path/to/get-pip.py
 python get-pip.py
@@ -34,10 +46,12 @@ or install it from your package manager.
 sudo apt update 
 sudo apt install python3-pip
 ```
+The syntax will be similar for most Linux distribution or in MacOS.
 
 ### 2. Install some libraries 
+To install the library `example`, run this command from anywhere on a terminal:
 ```bash 
-pip install --m numpy 
+pip install --m example 
 ```
 
 
@@ -62,7 +76,7 @@ This will automatically create a folder name after what you enter in the termina
 - `data.params` which contain the configuration of the simulation (date, computer's infos and contants)
 
 Examples of those files can be found in the `refs` folder for each available simulation.
-Note that `data` is the default name. It is easily customizable when going through the terminal prompt.
+Note that `data` is the default name and is easily customizable when going through the terminal prompt of the program.
 
 ### 2. Run it your way
 
@@ -103,5 +117,5 @@ be opened with a typical text editor.
 
 ### 3. Read the output files 
 
-A python script `read.py` can be found in the `refs` folder alongside output files to guide the Python beginner to plot the time-resolved simulations of the different populations or the lasing intensity. 
-Since all datas are written in text file, they still can be processed by any language.
+A python script `read.py` can be found in the `refs` folder alongside output files to guide the Python beginners to plot the results of their simulations. 
+Besides, all datas are written in text files so they can be processed in any language.
