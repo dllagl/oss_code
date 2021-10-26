@@ -46,16 +46,17 @@ NOTE : If you use an integrated developement environement such as Spyder, you sh
 Although basic modules are pre-installed in most Linux distributions or in MacOS, specific ones sometimes require manual installation.
 To check if the module `example` is installed on your computer, run the following command on a terminal:
 ```bash
-pip freeze | grep <example>
+cd /usr/lib/python3.X/site-packages/
+ls -l | grep <example>
 ```
-If PIP is not installed, look for the required module in `/usr/lib/python3.X/site-packages` or follow the next section to install PIP.
+where `X` is your current version of python, obtained by the command `python --version`.
 
 ## Install missing libraries
 
 ### 1. Install pip 
 
 PIP is a terminal tool used to ease the installation of external packages or libraries. If you want more details, look over the [documentation](https://docs.python.org/fr/3.6/installing/index.html).
-There are two main ways to install it on your computer. You can download either this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it by running these command in a terminal:
+There are two main ways to install it on your computer. You can either download this [python script](https://bootstrap.pypa.io/get-pip.py) and execute it by running these command in a terminal:
 
 ```bash
 cd path/to/get-pip.py
@@ -68,9 +69,14 @@ sudo apt install python3-pip
 ```
 
 ### 2. Install some libraries 
-To install the library `example`, run this command from anywhere on a terminal:
+To install the Python module `example`, run this command from anywhere on a terminal:
 ```bash 
 pip install --m <example> 
+```
+
+It is recommended to check afterwards that the module is installed correctly in your system.
+```bash
+pip freeze | grep <example>
 ```
 
 
