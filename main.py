@@ -6,6 +6,7 @@ import user_interface as ui
 import user_choice as uc
 import simu_populations as spop
 import simu_laser as slas
+import plot_fct as pl
 
 
 # terminal message when the program gets executed
@@ -35,10 +36,13 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 
     # one simulation with one set of parameters from imp_param.py
     if user_simu_choice == 1 : 
-        spop.simu_fixed_params(user_sys_choice)
+
+        data_file = spop.simu_fixed_params(user_sys_choice)
+        if (uc.ask_plot() == 'y') :  pl.main_plot(user_sys_choice,data_file)
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
+
         idx     = uc.choose_param_populations()
         idx_arr = uc.choose_param_values()
         spop.simu_multiple_params(user_sys_choice,idx,idx_arr)
@@ -68,7 +72,8 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
 
     # one simulation with one set of parameters from imp_param.py
     if user_simu_choice == 1 : 
-        slas.simu_fixed_params(user_sys_choice)
+        data_file = slas.simu_fixed_params(user_sys_choice)
+        if (uc.ask_plot() == 'y') :  pl.main_plot(user_sys_choice,data_file)
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
