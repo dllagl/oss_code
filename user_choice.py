@@ -135,3 +135,83 @@ def choose_param_values() :
         temp = input(f'Value {count} (Press Enter when finish) : ')
     
     return arr
+
+
+
+
+
+
+
+
+
+
+########## plot 
+
+
+# ask user if he/she wants to preview plot
+def ask_plot() : 
+    return input('Do you want to plot some datas from this simulation (y/n) ? ')
+
+# S0/S1
+def plot_two_pop() : 
+
+    print(
+'''
+What do you want to plot with time ? 
+1) S0
+2) S1
+'''
+    )
+    return int(eval(input('Your choice : '))
+    )
+
+
+
+# S0/S1/T1
+def plot_three_pop() : 
+
+    print(
+'''
+What do you want to plot with time ? 
+1) S0
+2) S1
+3) T1
+'''
+    )
+    return int(eval(input('Your choice : '))
+    )
+
+
+
+# S0/S1/I
+def plot_two_laser() : 
+
+    print(
+'''
+What do you want to plot with time ? 
+1) S0
+2) S1
+3) lasing intensity
+'''
+    )
+    return int(eval(input('Your choice : '))
+    )
+
+     
+
+# S0/S1/T1/I
+def plot_three_laser() : 
+
+    print(
+'''
+What do you want to plot with time ? 
+1) S0
+2) S1
+3) T1
+4) lasing intensity
+'''
+    )
+    return int(eval(input('Your choice : '))
+    )
+
+     
