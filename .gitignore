@@ -1,7 +1,22 @@
-/output
+
+# script linking 
 __pycache__
-*.sh
+
+# output
+/output
 *.out
 *.params
+
+# other
+*.sh
 /test
-/whitesheet
+
+
+# tex file 
+*.log
+*.aux
+*.gz
+*.tex
+*.bib
+*.fls
+*.fdb_latexmk
