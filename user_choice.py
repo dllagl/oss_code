@@ -22,24 +22,17 @@ def output_file_choice(output_folder) :
 ----------------------------------------------
 Please write the path for the output text file
 on which data are going to be written in.
-Default (Press Enter): data.out
+Default (Press Enter): data
 ----------------------------------------------
 ''')
-    output_file = input('File name : ') or 'data.out'
-    output_file_path = output_folder + '/' + output_file
+    output_file = input('File name : ') or 'data'
+    output_file_path = output_folder + '/' + output_file + '.out'
     return output_file_path
 
-def config_file_choice(output_folder) : 
-    print(
-'''
-----------------------------------------------
-Please enter a name for the file in which 
-simulations parameters will be stored
-Default (Press Enter): data.params
-----------------------------------------------
-''')
-    config_file = input('File path : ') or 'data.params'
-    config_file_path = output_folder + '/' + config_file
+def config_file(output_file_path) : 
+    
+    config_file = output_file_path.partition('.')
+    config_file_path = config_file[0] + '.params'
     return config_file_path
 
 

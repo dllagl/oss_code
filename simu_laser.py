@@ -32,7 +32,7 @@ def simu_fixed_params(user_sys_choice) :
     # output file to write the data on 
     output_folder = uc.output_folder_choice()
     output_file_path = uc.output_file_choice(output_folder)
-    config_file_path = uc.config_file_choice(output_folder)
+    config_file_path = uc.config_file(output_file_path)
 
     ui.create_if_not_exists([output_folder])
     ui.delete_file_if_exists([output_file_path,config_file_path])
@@ -183,7 +183,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
         
         # creation of the data output files
         output_file_path = f'{output_folder}/data_{ii}.out'
-        config_file_path = f'{output_folder}/data_{ii}.params'
+        config_file_path = uc.config_file(output_file_path)
         ui.delete_file_if_exists([output_file_path,config_file_path])
 
         # output config files where input parameters are stored
