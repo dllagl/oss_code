@@ -30,7 +30,7 @@ The OSS project is licensed under the GNU General Public License version 3. The 
 
 ## Recommended tools
 
-- Git 
+- [Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git) 
 - A text editor (e.g. [VS code](https://code.visualstudio.com/)) or a Python IDE (e.g. [Spyder](https://www.spyder-ide.org/))
 
 ## Required modules
@@ -81,7 +81,7 @@ pip freeze | grep <example>
 
 
 ## Obtain the source code 
-You can download it on the [main page](https://github.com/dllagl/tui.git) or clone it on your computer. 
+You can download it on the [main page](https://github.com/dllagl/tui.git) or clone it (provided that [git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git) is installed on your machine)via the following commands. This will automatically create a folder `tui` containing each files and folders of the project.
 ```bash 
 cd path/to/your/work/folder
 git clone https://github.com/dllagl/tui.git
@@ -100,20 +100,18 @@ This will automatically create a folder name after what you enter in the termina
 -  `data.out` which contain the output datas (time, populations ..)
 - `data.params` which contain the configuration of the simulation (date, computer's infos and contants)
 
-Examples of those files can be found in the `refs` folder for each available simulation.
-Note that `data` is the default name and is easily customizable when going through the terminal prompt of the program.
+Examples of those files can be found in the [refs](refs) folder for each available simulation.
 
 ### 2. Run it your way
 
 Other than implementing your own functions and fork the project, the only interation you need to have 
-with the code is when changing the initial inputs in the `imp_param.py` python file. 
-Python scripts can be opened with a classic text editor. 
+with the code is when changing the initial inputs in the [imp_param.py](imp_param.py) python file. 
 
 
 ### 3. Read the output files 
 
-A python script `read.py` can be found in the `refs` folder alongside output files to guide the Python beginners to plot the results of their simulations. 
-Besides, all datas are written in text files so they can be processed in any language.
+Python scripts can be found alongside examples data files to guide the Python beginners to plot the results of their simulations. 
+Moreover, datas are written in text files so they can be processed in any language.
 
 
 ## Useful ressources
