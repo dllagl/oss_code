@@ -9,7 +9,7 @@ import user_choice as uc
 
 
 
-def plott(data_arr, idx, ylabel) :
+def plot_setup(data_arr, idx, ylabel) :
 
     # tex syntax enabled
     plt.rc('text',usetex = True)
@@ -24,11 +24,27 @@ def plott(data_arr, idx, ylabel) :
     plt.yticks(fontsize = tick_size)
     plt.xticks(fontsize = tick_size)
     plt.tight_layout()
-    plt.show()
 
 
 
-def main_plot(sys,file) :
+
+def plot_multiple_params(name_file,nbr_file,idx,ylabel) : 
+    
+    for ii in range(nbr_file) : 
+        temp_file = name_file + f'_{int(ii)}' + '.out'
+        data = np.loadtxt(temp_file,skiprows=5)
+        plot_setup(data,idx,ylabel)
+    
+    plt.legend(
+        np.linspace(0,nbr_file,nbr_file+1).astype(int),
+        frameon=False,
+        prop = {'size':15})
+
+
+
+
+
+def main_plot_fixed_params(sys,file) :
 
     '''
     sys : system of the simuations (S0/S1 or S0/S1/T1 ..)
@@ -48,13 +64,12 @@ def main_plot(sys,file) :
         if (nbr_cols == 3) : 
             str_arr = ['$S_0$', '$S_1$']
             idx = uc.plot_two_pop()
-            plott(data,idx,str_arr[idx-1])
+            plot_setup(data,idx,str_arr[idx-1])
 
         else : 
             str_arr = ['$S_0$', '$S_1$', '$T_1$']
             idx = uc.plot_three_pop()
-            plott(data,idx,str_arr[idx-1])
-
+            plot_setup(data,idx,str_arr[idx-1])
 
     # lasing (S0/S1/I or S0/S1/T1/I)
     else : 
@@ -63,13 +78,72 @@ def main_plot(sys,file) :
         if (nbr_cols == 4) : 
             str_arr = ['$S_0$', '$S_1$', '$\\rm Intensity$']
             idx = uc.plot_two_laser()
-            plott(data,idx,str_arr[idx-1])
+            plot_setup(data,idx,str_arr[idx-1])
 
         else : 
             str_arr = ['$S_0$', '$S_1$', '$T_1$', '$\\rm Intensity$']
             idx = uc.plot_three_laser()
-            plott(data,idx,str_arr[idx-1])
+            plot_setup(data,idx,str_arr[idx-1])
 
+    plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def main_plot_multiple_params(sys,file_name,file_nbr) :
+
+    '''
+    sys : system of the simuations (S0/S1 or S0/S1/T1 ..)
+    file : file in which output data are written
+    '''
+
+    # load first data file to count the columns 
+    first_file_name = file_name + '_0.out'
+    temp_data = np.loadtxt(first_file_name,skiprows=5,max_rows=2)
+
+    # number of columns (to guess which system it is )
+    nbr_cols = int(np.size(temp_data,1))
+    del temp_data
+
+    # no lasing (S0/S1 or S0/S1/T1)
+    if (sys <= 2) : 
+
+        # S0/S1
+        if (nbr_cols == 3) : 
+            str_arr = ['$S_0$', '$S_1$']
+            idx = uc.plot_two_pop()
+            plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
+
+        else : 
+            str_arr = ['$S_0$', '$S_1$', '$T_1$']
+            idx = uc.plot_three_pop()
+            plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
+
+    # lasing (S0/S1/I or S0/S1/T1/I)
+    else : 
+
+        # S0/S1/I
+        if (nbr_cols == 4) : 
+            str_arr = ['$S_0$', '$S_1$', '$\\rm Intensity$']
+            idx = uc.plot_two_laser()
+            plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
+
+        else : 
+            str_arr = ['$S_0$', '$S_1$', '$T_1$', '$\\rm Intensity$']
+            idx = uc.plot_three_laser()
+            plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
+
+    plt.show()
 
 
 

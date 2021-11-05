@@ -179,7 +179,8 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
             const_params[var_idx] = var_arr[ii]
 
         # creation of the data output files
-        output_file_path = f'{output_folder}/data_{ii}.out'
+        output_file_name = f'{output_folder}/data'
+        output_file_path = output_file_name + f'_{ii}' + '.out'
         config_file_path = uc.config_file(output_file_path)
         ui.delete_file_if_exists([output_file_path,config_file_path])
 
@@ -207,7 +208,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     #---------------------------------------------------#
     #---------------------------------------------------# 
 
-    return 0
+    return output_file_name, int(len(var_arr))
 
 
 

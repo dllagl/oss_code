@@ -38,14 +38,15 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
     if user_simu_choice == 1 : 
 
         data_file = spop.simu_fixed_params(user_sys_choice)
-        if (uc.ask_plot() == 'y') :  pl.main_plot(user_sys_choice,data_file)
+        if (uc.ask_plot() == 'y') :  pl.main_plot_fixed_params(user_sys_choice,data_file)
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
 
         idx     = uc.choose_param_populations()
         idx_arr = uc.choose_param_values()
-        spop.simu_multiple_params(user_sys_choice,idx,idx_arr)
+        name,nbr = spop.simu_multiple_params(user_sys_choice,idx,idx_arr)
+        if (uc.ask_plot() == 'y') :  pl.main_plot_multiple_params(user_sys_choice,name,nbr)
 
     # error handling
     else : 
@@ -73,13 +74,14 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
     # one simulation with one set of parameters from imp_param.py
     if user_simu_choice == 1 : 
         data_file = slas.simu_fixed_params(user_sys_choice)
-        if (uc.ask_plot() == 'y') :  pl.main_plot(user_sys_choice,data_file)
+        if (uc.ask_plot() == 'y') :  pl.main_plot_fixed_params(user_sys_choice,data_file)
 
     # simulations for several values of one parameter chosen by the user
     elif user_simu_choice == 2 : 
         idx     = uc.choose_param_laser()
         idx_arr = uc.choose_param_values()
-        slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
+        name, nbr = slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
+        if (uc.ask_plot() == 'y') :  pl.main_plot_multiple_params(user_sys_choice,name,nbr)
 
     # error handling
     else : 
