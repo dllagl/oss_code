@@ -102,6 +102,11 @@ def output_file_init(arr_global,arr_pump,tmin,tmax,file,bool_laser) :
     arr_sample = arr_global[0:4]
     arr_mol    = arr_global[4:15] 
     arr_rates  = arr_global[15:19] 
+
+    # correction for ksta,kssa,ktta
+    for ii in range(1,4) : 
+        arr_rates[ii] /= (1e-6 * arr_sample[3])
+
     if bool_laser : arr_struct = arr_global[19:25] 
 
     ofile = open(file,'a+')
