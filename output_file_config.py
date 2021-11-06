@@ -96,7 +96,7 @@ unit_arr_pump = [
 
 
 # config file for populations and laser simulations
-def output_file_init_simu_laser(arr_global,arr_pump,tmin,tmax,file,bool_laser) : 
+def output_file_init(arr_global,arr_pump,tmin,tmax,file,bool_laser) : 
 
     # extract different parameters arrays from arr_global
     arr_sample = arr_global[0:4]

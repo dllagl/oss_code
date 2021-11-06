@@ -20,7 +20,7 @@ def simu_fixed_params(user_sys_choice) :
     # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
-    const_rates    = imp.param_rates(const_sample[2])
+    const_rates    = imp.param_rates(const_sample[3])
     const_struct   = imp.param_resonator(const_molecule[2])
 
     # concatenate arrays for solver 
@@ -38,7 +38,7 @@ def simu_fixed_params(user_sys_choice) :
     ui.delete_file_if_exists([output_file_path,config_file_path])
 
     # output config files where input parameters are stored
-    of.output_file_init_simu_laser(
+    of.output_file_init(
         const_params,
         const_pump,
         tmin,tmax,
@@ -113,7 +113,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     # photophysics/pump/time parameters importation
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
-    const_rates    = imp.param_rates(const_sample[2])
+    const_rates    = imp.param_rates(const_sample[3])
     const_struct   = imp.param_resonator(const_molecule[2])
     
 
@@ -175,7 +175,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
             # ksta,kssa,ktta are in m3.s-1 as 
             # input for the user, but must be multiplied by N since
             # the populations are normalized
-            const_params[var_idx] = var_arr[ii] * const_sample[2]
+            const_params[var_idx] = var_arr[ii] * const_sample[3]
             
         else : 
             const_params[var_idx] = var_arr[ii]
@@ -188,7 +188,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
         ui.delete_file_if_exists([output_file_path,config_file_path])
 
         # output config files where input parameters are stored
-        of.output_file_init_simu_laser(
+        of.output_file_init(
         const_params,
         const_pump,
         tmin,tmax,
