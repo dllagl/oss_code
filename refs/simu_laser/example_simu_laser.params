@@ -1,6 +1,6 @@
 
 
-@date : 2021-10-22 19:13:56.308924
+@date : 2021-11-07 18:17:30.148351
 
 @System: Linux
 @Computer name: b008-pon
@@ -29,18 +29,18 @@ kSI = 9.000e-01
 @sample parameters
 -------------------------
 doping = 1.000e+00 
-nbr_active_mol = 3.944e-21 m-3
-sigma_abs_pump = 1.700e+00 m2
-neff = 2.040e+27 
+sigma_abs_pump = 3.944e-21 m2
+neff = 1.700e+00 
+nbr_active_mol = 2.040e+27 m-3
 -------------------------
 
 
 @rates parameters
 -------------------------
 kisc = 1.000e+08 s-1
-ksta = 1.700e-16 cm3.s-1
-kssa = 0.000e+00 cm3.s-1
-ktta = 0.000e+00 cm3.s-1
+ksta = 1.000e-10 cm3.s-1
+kssa = 1.000e-11 cm3.s-1
+ktta = 1.000e-13 cm3.s-1
 -------------------------
 
 
