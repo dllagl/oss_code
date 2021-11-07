@@ -124,8 +124,7 @@ of Applied Physics, 2007, 101, 023107
 - [[2]](https://link.springer.com/book/10.1007/978-3-642-36705-2) S. Forget and S. Chénais, Organic solid-state lasers, Springer,
 Heidelberg, 2013.
 - [[3]](https://doi.org/10.1063/1.5121485) F. Bencheikh, A. S. D. Sandanayaka, T. Fukunaga, T. Mat-
-sushima and C. Adachi, Journal of Applied Physics, 2019, 126,
-185501.
+sushima and C. Adachi, Journal of Applied Physics, 2019, 126, 185501.
 
 
 ### 2. Instructional videos (ongoing production)
