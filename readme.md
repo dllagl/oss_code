@@ -119,13 +119,17 @@ Moreover, datas are written in text files so they can be processed in any langua
 ### 1. Scientific papers
 
 Here are some peer-reviewed scientific papers, Ph.D. thesis or books that work with the system of equations implemented in OSS : 
-- ref1
-- ref2
-- ref3
+- [[1]](https://doi.org/10.1063/1.2425003) C. Gärtner, C. Karnutsch, U. Lemmer and C. Pflumm, Journal
+of Applied Physics, 2007, 101, 023107
+- [[2]](https://link.springer.com/book/10.1007/978-3-642-36705-2) S. Forget and S. Chénais, Organic solid-state lasers, Springer,
+Heidelberg, 2013.
+- [[3]](https://doi.org/10.1063/1.5121485) F. Bencheikh, A. S. D. Sandanayaka, T. Fukunaga, T. Mat-
+sushima and C. Adachi, Journal of Applied Physics, 2019, 126,
+185501.
 
 
-### 2. Instructional videos
+### 2. Instructional videos (ongoing production)
 
-In order to help new users to get the most out of OSS, a few videos have been recorded.
+<!-- In order to help new users to get the most out of OSS, a few videos have been recorded.
 - Windows :
-- UNIX : 
+- UNIX :  -->
