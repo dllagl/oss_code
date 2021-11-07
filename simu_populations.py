@@ -25,13 +25,13 @@ def simu_fixed_params(user_sys_choice) :
     const_molecule = imp.param_molecule()
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[3])
+    const_pump     = imp.param_pump()
 
 
     # concatenate arrays for solver 
-    const_params   = const_sample + const_molecule + const_rates
+    const_params   = const_sample + const_molecule + const_rates + const_pump
 
 
-    const_pump     = imp.param_pump()
     tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
@@ -45,7 +45,6 @@ def simu_fixed_params(user_sys_choice) :
     # output config files where input parameters are stored
     of.output_file_init(
         const_params,
-        const_pump,
         tmin,tmax,
         config_file_path,
         _is_laser
@@ -84,7 +83,6 @@ def simu_fixed_params(user_sys_choice) :
 
     # solve the ODE
     sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],
-                const_pump[0],
                 const_params,
                 output_file_path,
                 config_file_path,

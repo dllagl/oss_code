@@ -70,6 +70,7 @@ def choose_param_populations() :
 16) ksta (m3.s-1)
 17) kssa (m3.s-1)
 18) ktta (m3.s-1)
+19) Ip (W.m-2)
 ---------------------------------
 ''')
     print('Which variable du you want to iterate ?')
