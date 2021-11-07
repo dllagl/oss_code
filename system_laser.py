@@ -10,7 +10,7 @@ import phys_constants as cs
 
 
 
-def sys_equations_two_pop(s, t, doping, Ip, param_vec) : 
+def sys_equations_two_pop(s, t, doping, param_vec) : 
 
     '''
     S0  = s[0]
@@ -22,6 +22,7 @@ def sys_equations_two_pop(s, t, doping, Ip, param_vec) :
     molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,\
     sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
     kISC, kSTA, kSSA, kTTA,\
+    Ip,\
     gama,qfactor,nu,tau_cav,pump_area,spont = param_vec
 
     
@@ -68,7 +69,7 @@ def sys_equations_two_pop(s, t, doping, Ip, param_vec) :
 
 
 
-def sys_equations_three_pop(s, t, doping, Ip, param_vec) : 
+def sys_equations_three_pop(s, t, doping, param_vec) : 
 
     '''
     S0 = s[0]
@@ -82,6 +83,7 @@ def sys_equations_three_pop(s, t, doping, Ip, param_vec) :
     molar_mass,lambda_abs,lambda_fluo,tau_f,tau_t,\
     sigma_em,sigma_S1S2_pump,sigma_S1S2_laser,sigma_T1T2_pump,sigma_T1T2_laser,kSI,\
     kISC, kSTA, kSSA, kTTA,\
+    Ip,\
     gama,qfactor,nu,tau_cav,pump_area,spont = param_vec
 
 

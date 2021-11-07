@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
+def solver(method,sys,initial_pop,tmin,tmax,doping,
     param_arr,output_file,config_file,user_sys_choice,
     time_counter,time_unit,nbr_pts) :
 
@@ -31,7 +31,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
     nbr_pts_osc  = 1e4
     time_vec_osc = np.linspace(0,time_osc_max,int(nbr_pts_osc))
 
-    sol = method(sys,initial_pop,time_vec_osc, args=(doping, pump_fluence,
+    sol = method(sys,initial_pop,time_vec_osc, args=(doping,
         param_arr)
         )
 
@@ -79,7 +79,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,pump_fluence,
             )
 
         # integrating the ODE system with odeint
-        sol = method(sys,initial_pop,time_vec, args=(doping, pump_fluence,
+        sol = method(sys,initial_pop,time_vec, args=(doping,
             param_arr)
             )
 

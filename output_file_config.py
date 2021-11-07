@@ -108,7 +108,7 @@ def output_file_init(arr_global,tmin,tmax,file,bool_laser) :
     for ii in range(1,4) : 
         arr_rates[ii] /= (1e-6 * arr_sample[3])
 
-    if bool_laser : arr_struct = arr_global[19:25] 
+    if bool_laser : arr_struct = arr_global[20:26] 
 
     ofile = open(file,'a+')
 

@@ -103,10 +103,11 @@ def choose_param_laser() :
 16) ksta (m3.s-1)
 17) kssa (m3.s-1)
 18) ktta (m3.s-1)
-19) gamma
-20) Q-factor
+19) Ip (W.m-2)
+20) gamma
+21) Q-factor
 //
-23) pump_area (m2)
+24) pump_area (m2)
 ---------------------------------
 ''')
     print('Which variable du you want to iterate ?')
