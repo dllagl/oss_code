@@ -160,7 +160,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     for ii in range(len(var_arr)) : 
 
         # Exception handling : variable Q-factor
-        if var_idx == 20 : 
+        if var_idx == 21 : 
             const_struct   = imp.param_resonator(const_molecule[2], var_arr[ii])
         else : 
             const_struct = imp.param_resonator(const_molecule[2])
