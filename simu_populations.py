@@ -26,13 +26,13 @@ def simu_fixed_params(user_sys_choice) :
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[3])
     const_pump     = imp.param_pump()
+    tmin,tmax      = imp.param_time()
 
 
     # concatenate arrays for solver 
     const_params   = const_sample + const_molecule + const_rates + const_pump
 
 
-    tmin,tmax      = imp.param_time()
 
     # output file to write the data on 
     output_folder    = uc.output_folder_choice()
@@ -122,11 +122,11 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     const_sample   = imp.param_sample(const_molecule[0])
     const_rates    = imp.param_rates(const_sample[3])
     const_pump     = imp.param_pump()
+    tmin,tmax      = imp.param_time()
 
     # concatenate arrays for solver 
     const_params   = const_sample + const_molecule + const_rates + const_pump
 
-    tmin,tmax      = imp.param_time()
 
     # creation of output folder
     output_folder = uc.output_folder_choice()
