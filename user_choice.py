@@ -2,6 +2,22 @@
 
 
 
+# choice of simulations type for populations and lasing 
+# simulations (called in main.py)
+def user_type_choice() : 
+
+    print(
+'''
+1) one simulation with one set of parameters (to be customed in imp_param.py)
+2) n simulations for n values of one parameter (ex : kisc = 1e6, 1e7, 1e8)
+3) Lasing regime study for a large range of parmeters (beta)
+''')
+
+    return eval(input('Which simulation (1,2) ? '))
+
+
+
+
 # files and folders
 def output_folder_choice() : 
     print(

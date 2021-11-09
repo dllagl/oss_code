@@ -25,14 +25,8 @@ user_sys_choice = eval(input('Which system (1,2,3,4) ? '))
 # simulations without lasing 
 if (user_sys_choice==1) or (user_sys_choice==2) :
 
-    print(
-'''
-1) one simulation with one set of parameters (to be customed in imp_param.py)
-2) n simulations for n values of one parameter (ex : kisc = 1e6, 1e7, 1e8)
-'''
-)
-
-    user_simu_choice = eval(input('Which simulation (1,2) ? '))
+    # choice of the simulation to run (single or multiple set of parameters)
+    user_simu_choice = uc.user_type_choice()
 
     # one simulation with one set of parameters from imp_param.py
     if user_simu_choice == 1 : 
@@ -63,13 +57,8 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 # lasing simulations (to do)
 if (user_sys_choice==3) or (user_sys_choice==4) :
 
-    print(
-'''
-1) one simulation with one set of parameters (to be customed in imp_param.py)
-2) n simulations for n values of one parameter (ex : kisc = 1e6, 1e7, 1e8)
-'''
-)
-    user_simu_choice = eval(input('Which simulation (1,2) ? '))
+    # choice of the simulation to run (single or multiple set of parameters)
+    user_simu_choice = uc.user_type_choice()
 
     # one simulation with one set of parameters from imp_param.py
     if user_simu_choice == 1 : 
