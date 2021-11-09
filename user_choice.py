@@ -130,7 +130,10 @@ def choose_param_laser() :
     return int(input("Enter its corresponding number : "))
 
 
-
+# user enter values of the parameter chosen in the functions 
+# choose_param_populations() ; choose_param_laser()
+# return list of values 
+# called in main.py
 def choose_param_values() : 
     print('')
     print('Press enter after each written.')
@@ -171,8 +174,7 @@ def plot_two_pop() :
 What do you want to plot with time ? 
 1) S0
 2) S1
-'''
-    )
+''')
     return int(eval(input('Your choice : '))
     )
 
@@ -187,8 +189,7 @@ What do you want to plot with time ?
 1) S0
 2) S1
 3) T1
-'''
-    )
+''')
     return int(eval(input('Your choice : '))
     )
 
@@ -203,8 +204,7 @@ What do you want to plot with time ?
 1) S0
 2) S1
 3) lasing intensity
-'''
-    )
+''')
     return int(eval(input('Your choice : '))
     )
 
@@ -220,8 +220,7 @@ What do you want to plot with time ?
 2) S1
 3) T1
 4) lasing intensity
-'''
-    )
+''')
     return int(eval(input('Your choice : '))
     )
 

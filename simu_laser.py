@@ -9,6 +9,7 @@ import simu_laser_solver as sv
 import output_file_config as of
 import user_interface as ui
 import user_choice as uc
+import phys_constants as cs
 
 
 # simulations for one set of parameters
@@ -23,11 +24,19 @@ def simu_fixed_params(user_sys_choice) :
     const_rates    = imp.param_rates(const_sample[3])
     const_pump     = imp.param_pump()
     const_struct   = imp.param_resonator(const_molecule[2])
+    tmin,tmax      = imp.param_time()
 
     # concatenate arrays for solver 
     const_params   = const_sample + const_molecule + const_rates + const_pump + const_struct
 
-    tmin,tmax      = imp.param_time()
+
+    # compute the saturation intensity of the S0/S1 transition to 
+    # normalize the intra-cavity intensity I
+    pump_saturation  = cs.C_HC / (const_molecule[1]*const_sample[1]*const_molecule[3])
+    tau_eff          = const_molecule[3] / (1+(const_pump[0]/pump_saturation))
+    laser_saturation = cs.C_HC / (const_molecule[2]*const_molecule[5]*tau_eff)
+
+
 
     # output file to write the data on 
     output_folder = uc.output_folder_choice()
@@ -79,6 +88,7 @@ def simu_fixed_params(user_sys_choice) :
     # solve the ODE
     sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],
                 const_params,
+                laser_saturation,
                 output_file_path,
                 config_file_path,
                 user_sys_choice,
@@ -114,10 +124,10 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     const_rates    = imp.param_rates(const_sample[3])
     const_pump     = imp.param_pump()
     const_struct   = imp.param_resonator(const_molecule[2])
-    
-
-
     tmin,tmax      = imp.param_time()
+
+
+    
 
     # output file to write the data on 
     output_folder = uc.output_folder_choice()
@@ -179,6 +189,13 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
             const_params[var_idx] = var_arr[ii]
 
         
+        # compute the saturation intensity of the S0/S1 transition to 
+        # normalize the intra-cavity intensity I
+        pump_saturation  = cs.C_HC / (const_molecule[1]*const_sample[1]*const_molecule[3])
+        tau_eff          = const_molecule[3] / (1+(const_pump[0]/pump_saturation))
+        laser_saturation = cs.C_HC / (const_molecule[2]*const_molecule[5]*tau_eff)
+
+
         # creation of the data output files
         output_file_name = f'{output_folder}/data'
         output_file_path = output_file_name +  f'_{ii}' + '.out'
@@ -198,6 +215,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
         # solve the ODE
         sv.solver(odeint,ode_sys,init_pop,tmin,tmax,const_sample[0],
                     const_params,
+                    laser_saturation,
                     output_file_path,
                     config_file_path,
                     user_sys_choice,

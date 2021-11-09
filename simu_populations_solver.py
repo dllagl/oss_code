@@ -22,7 +22,9 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,
     for ii in range(time_counter) : 
 
         # define time vector iteration
-        time_vec = np.linspace(ii*time_unit,(ii+1)*time_unit,int(nbr_pts))
+        tmin     = ii*time_unit
+        tmax     = (ii+1)*time_unit
+        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping,
