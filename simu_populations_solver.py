@@ -13,10 +13,10 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,
     ofile.write('@config file : %s\n\n' % config_file)
 
     if user_sys_choice == 1 : 
-        ofile.write('%s %14s %13s\n' % ('time', 'S0', 'S1'))
+        ofile.write('%s %15s %13s\n' % ('time', 'S0/N', 'S1/N'))
 
     elif user_sys_choice == 2 : 
-        ofile.write('%s %13s %10s %11s\n' % ('time', 'S0', 'S1', 'T1'))
+        ofile.write('%s %13s %11s %11s\n' % ('time', 'S0/N', 'S1/N', 'T1/N'))
 
 
     for ii in range(time_counter) : 
