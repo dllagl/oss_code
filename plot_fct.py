@@ -62,12 +62,12 @@ def main_plot_fixed_params(sys,file) :
 
         # S0/S1
         if (nbr_cols == 3) : 
-            str_arr = ['$S_0$', '$S_1$']
+            str_arr = ['$S_0/N$', '$S_1/N$']
             idx = uc.plot_two_pop()
             plot_setup(data,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0$', '$S_1$', '$T_1$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$']
             idx = uc.plot_three_pop()
             plot_setup(data,idx,str_arr[idx-1])
 
@@ -76,12 +76,12 @@ def main_plot_fixed_params(sys,file) :
 
         # S0/S1/I
         if (nbr_cols == 4) : 
-            str_arr = ['$S_0$', '$S_1$', '$\\rm Intensity$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$I/I_{\\rm sat}$']
             idx = uc.plot_two_laser()
             plot_setup(data,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0$', '$S_1$', '$T_1$', '$\\rm Intensity$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$', '$I/I_{\\rm sat}$']
             idx = uc.plot_three_laser()
             plot_setup(data,idx,str_arr[idx-1])
 
@@ -120,12 +120,12 @@ def main_plot_multiple_params(sys,file_name,file_nbr) :
 
         # S0/S1
         if (nbr_cols == 3) : 
-            str_arr = ['$S_0$', '$S_1$']
+            str_arr = ['$S_0/N$', '$S_1/N$']
             idx = uc.plot_two_pop()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0$', '$S_1$', '$T_1$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$']
             idx = uc.plot_three_pop()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
@@ -134,12 +134,12 @@ def main_plot_multiple_params(sys,file_name,file_nbr) :
 
         # S0/S1/I
         if (nbr_cols == 4) : 
-            str_arr = ['$S_0$', '$S_1$', '$\\rm Intensity$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$I/I_{\\rm sat}$']
             idx = uc.plot_two_laser()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0$', '$S_1$', '$T_1$', '$\\rm Intensity$']
+            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$', '$I/I_{\\rm sat}$']
             idx = uc.plot_three_laser()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
