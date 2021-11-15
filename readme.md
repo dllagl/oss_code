@@ -93,6 +93,7 @@ git clone https://github.com/dllagl/tui.git
 
 Once you are in the 'oss' folder and you have the required libraries you can execute the OSS code. 
 ```bash 
+cd src
 python main.py 
 ```
 
