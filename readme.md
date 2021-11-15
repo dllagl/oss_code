@@ -81,7 +81,7 @@ pip freeze | grep <example>
 
 
 ## Obtain the source code 
-You can download it on the [main page](https://github.com/dllagl/tui.git) or clone it (provided that [git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git) is installed on your machine)via the following commands. This will automatically create a folder `tui` containing each files and folders of the project.
+You can download it on the main page or clone it via the following commands. This will automatically create a folder `oss` containing each files and folders of the project.
 ```bash 
 cd path/to/your/work/folder
 git clone https://github.com/dllagl/tui.git
