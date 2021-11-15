@@ -16,7 +16,7 @@ name_arr_mol = [
     'kSI'
 ]
 unit_arr_mol = [
-    'g/m3',
+    'g.m-3',
     'm',
     'm',
     's',
@@ -75,7 +75,7 @@ unit_arr_struct = [
     's-1',
     's',
     'm2',
-    'W/m2'
+    'W.m-2'
 ]
 
 
