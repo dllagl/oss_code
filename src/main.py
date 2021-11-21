@@ -1,11 +1,11 @@
 
 
 
-
 import user_interface as ui
 import user_choice as uc
 import simu_populations as spop
 import simu_laser as slas
+import simu_lasing_regime as slr
 import plot_fct as pl
 
 
@@ -71,6 +71,15 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
         idx_arr = uc.choose_param_values()
         name, nbr = slas.simu_multiple_params(user_sys_choice,idx,idx_arr)
         if (uc.ask_plot() == 'y') :  pl.main_plot_multiple_params(user_sys_choice,name,nbr)
+
+    # lasing regime study for a large set of values of one parameters
+    # ex : kisc = [1e2 to 1e10]
+    elif user_simu_choice == 3 : 
+        import numpy as np 
+        idx     = uc.choose_param_laser()
+        idx_arr = uc.choose_param_lasing_regime()
+        slr.simu_lasing_regime_three_pop(idx, idx_arr)
+
 
     # error handling
     else : 

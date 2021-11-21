@@ -151,6 +151,23 @@ def choose_param_values() :
     return arr
 
 
+def choose_param_lasing_regime() : 
+
+    print('')
+    print('''The objective is to run the simulations
+a wide range of value of the desired parameter.
+If you want the parameter to go from 1e4 to 1e6, enter
+4 and 6 as lowest and highest values.
+''')
+    low     = int(input('Enter the power of the lowest desired value : '))
+    high    = int(input('Enter the power of the highest desired value : '))
+    nbr_val = int(input('Number of value : ')) 
+
+    from numpy import logspace
+
+    return logspace(low,high,nbr_val)
+
+
 
 
 
