@@ -22,4 +22,6 @@ __pycache__
 *.fls
 *.fdb_latexmk
 *.toc
-/img
+
+# images
+/doc/img/*
