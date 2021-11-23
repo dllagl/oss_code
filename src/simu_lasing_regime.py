@@ -6,12 +6,14 @@ from scipy.integrate import odeint
 
 # external files 
 import imp_param as imp
-from simu_lasing_regime_fct import write_guidelines 
 import system_laser as sys 
 import user_interface as ui 
 import user_choice as uc 
 import phys_constants as cs 
 import simu_lasing_regime_solver as sv 
+import output_file_config as of 
+
+from simu_lasing_regime_fct import write_guidelines 
 
 
 # three level (S0/S1/T1 + intensity)
@@ -64,6 +66,12 @@ def simu_lasing_regime_three_pop(var_idx, var_arr) :
     ui.simulation_start()
 
     ofile = open(output_file_path, 'a+')
+    cfile = open(config_file_path, 'a+')
+
+    of.write_user_infos(cfile)
+
+    ofile.write('\n\n')
+    ofile.write('@config file : %s\n\n' % config_file_path)
     
     ofile.write('\n\n')
     write_guidelines(ofile)

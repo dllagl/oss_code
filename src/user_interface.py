@@ -26,11 +26,13 @@ def welcome() :
 def print_available_systems() : 
     print(
 '''
->> Populations
+Please choose a system to work on.
+
+-> Populations
 1) two level   : S0/S1
 2) three level : S0/S1/T1
 
->> Populations + resonator
+-> Populations + resonator
 3) two level   : S0/S1/intensity
 4) three level : S0/S1/T1/intensity
 ''')

@@ -96,7 +96,7 @@ def write_user_infos(ofile) :
 
     # print current day and time 
     from datetime import datetime
-    ofile.write('@date : %s\n\n' % datetime.now())
+    ofile.write('@date: %s\n\n' % datetime.now())
 
     # print computer's infos
     import platform
