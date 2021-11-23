@@ -113,3 +113,104 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
     #---------------------------------------------------#
 
     return 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def solver_two_pop(method,sys,initial_pop,tmin,tmax,doping,
+    param_arr,laser_sat,ofile,
+    time_counter,time_unit,nbr_pts,var) :
+
+    # if I/Isat <= lasing_criteria : lasing is gone
+    # only fluorescence remains
+    lasing_criteria = 1e-2
+
+    #---------------------------------------------------#
+    #---------------------------------------------------#
+    # integrate first time for relaxation oscillation 
+    # (require more points for ~20ns)
+
+    time_osc     = 20e-9
+    nbr_pts_osc  = 1e4
+    time_vec_osc = np.linspace(0,time_osc,int(nbr_pts_osc))
+
+
+    # integrating the ODE system with odeint
+    sol = method(sys,initial_pop,time_vec_osc, args=(doping,
+        param_arr)
+        )
+
+    # actualizd initialtion population for next integration step
+    initial_pop = [sol[-1,0], sol[-1,1], sol[-1,2]]
+
+    # if normalized intensity is lower than 1e-2 after 
+    # relaxation oscillation : no lasing (abitrary criteria)
+    if ((sol[-1,2]/laser_sat) <= lasing_criteria) : 
+        fct.write_no_lasing(ofile,var)
+        return 
+
+
+    #---------------------------------------------------#
+    #---------------------------------------------------#
+
+
+
+
+
+
+    #---------------------------------------------------#
+    #---------------------------------------------------#
+    # integration after relaxation oscillation (larger time step
+    # and less points)
+
+    for ii in range(time_counter) : 
+
+        # define time vector iteration
+        tmin     = ii*time_unit + time_osc
+        tmax     = (ii+1)*time_unit + time_osc
+        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
+
+        # integrating the ODE system with odeint
+        sol = method(sys,initial_pop,time_vec, args=(doping,
+            param_arr)
+            )
+
+        # actualized initialtion population for next integration step
+        initial_pop = [sol[-1,0], sol[-1,1], sol[-1,2]]
+
+
+        '''
+        algorithm to find what the emitted lasing regime is 
+        (no lasing, pulse or true cw)
+        '''
+
+        int_norm = sol[:,2] / laser_sat
+
+        # no lasing 
+        if int_norm < lasing_criteria : 
+            fct.write_no_lasing(ofile,var)
+        
+        # lasing
+        else : 
+            fct.write_cw(ofile,var)
+        return 
+
+
+    
+
+    #---------------------------------------------------#
+    #---------------------------------------------------#
+
+    return 0

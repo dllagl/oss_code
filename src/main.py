@@ -44,7 +44,8 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 
     # error handling
     else : 
-        print('Corresponding simulations not available. Please restart.')
+        print('Please choose an available simulation (1/2).')
+        print('Exiting interface ..')
 
 
 
@@ -52,9 +53,7 @@ if (user_sys_choice==1) or (user_sys_choice==2) :
 
 
 
-
-
-# lasing simulations (to do)
+# lasing simulations
 if (user_sys_choice==3) or (user_sys_choice==4) :
 
     # choice of the simulation to run (single or multiple set of parameters)
@@ -75,13 +74,31 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
     # lasing regime study for a large set of values of one parameters
     # ex : kisc = [1e2 to 1e10]
     elif user_simu_choice == 3 : 
+        
+        # idx     = uc.choose_param_laser()
+        # idx_arr = uc.choose_param_lasing_regime()
+        idx = 21
         import numpy as np 
-        idx     = uc.choose_param_laser()
-        idx_arr = uc.choose_param_lasing_regime()
-        slr.simu_lasing_regime_three_pop(idx, idx_arr)
+        idx_arr = np.array([1e2, 2e3])
+
+        # S0/S1/I
+        if user_sys_choice == 3 : 
+            slr.simu_lasing_regime_two_pop(idx,idx_arr)
+
+        # S0/S1/T1/I
+        elif user_sys_choice == 4 : 
+            slr.simu_lasing_regime_three_pop(idx, idx_arr)
 
 
     # error handling
     else : 
-        print('Corresponding simulations not available. Please restart.')
+        print('Please choose an available simulation (1/2/3).')
+        print('Exiting interface ..')
+
+
+
+# error handling 
+else : 
+    print('Please choose an available system (1/2/3/4).')
+    print('Exiting interface ..')
 

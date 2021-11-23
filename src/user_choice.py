@@ -10,7 +10,7 @@ def user_type_choice() :
 '''
 1) one simulation with one set of parameters (to be customed in imp_param.py)
 2) n simulations for n values of one parameter (ex : kisc = 1e6, 1e7, 1e8)
-3) Lasing regime study for a large range of parmeters (beta)
+3) Lasing regime study for a large range of parameters (beta)
 ''')
 
     return eval(input('Which simulation (1,2) ? '))

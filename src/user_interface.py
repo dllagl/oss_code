@@ -30,8 +30,8 @@ def print_available_systems() :
 1) two level   : S0/S1
 2) three level : S0/S1/T1
 
->> Populations + lasing intensity (ongoing development)
-3) two level : S0/S1/intensity
+>> Populations + resonator
+3) two level   : S0/S1/intensity
 4) three level : S0/S1/T1/intensity
 ''')
     return 0
