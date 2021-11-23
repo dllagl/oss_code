@@ -103,7 +103,7 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
         # a pulse.
         elif (ii == time_counter - 1) : 
 
-            fct.write_pulse(ofile,var,time_vec[-1])
+            fct.write_undefined(ofile,var)
             return 
 
 
