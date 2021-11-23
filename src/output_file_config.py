@@ -91,7 +91,47 @@ unit_arr_pump = [
 
 
 
+# write user's computer informations
+def write_user_infos(ofile) : 
 
+    # print current day and time 
+    from datetime import datetime
+    ofile.write('@date : %s\n\n' % datetime.now())
+
+    # print computer's infos
+    import platform
+    uname = platform.uname()
+    ofile.write('@System: %s\n' % uname.system)
+    ofile.write('@Computer name: %s\n' % uname.node)
+    ofile.write('@Release: %s\n' % uname.release)
+    ofile.write('@Version: %s\n' % uname.version)
+    ofile.write('@Machine: %s\n' % uname.machine)
+    ofile.write('@Processor: %s\n' % uname.processor)
+
+    return 0
+
+
+
+# write on file each parameter of an array
+def write_params(ofile,title,name_arr,arr,unit_arr) : 
+    
+    ofile.write(f'@{title}\n')
+    ofile.write('-------------------------\n')
+
+    if len(arr) > 1 : 
+        for ii in range(len(name_arr)) : 
+            ofile.write('%s = %.3e %s\n' 
+            % (name_arr[ii],arr[ii],unit_arr[ii]))
+    
+    # Exception handling (ex: arr_pump)
+    else : 
+        ofile.write('%s = %.3e %s\n' 
+            % (name_arr[0],arr[0],unit_arr[0]))
+
+    ofile.write('-------------------------\n')
+    ofile.write('\n\n')
+
+    return 0
 
 
 
@@ -112,59 +152,17 @@ def output_file_init(arr_global,tmin,tmax,file,bool_laser) :
 
     ofile = open(file,'a+')
 
-    # write on file each parameter of an array
-    def write_params(title,name_arr,arr,unit_arr) : 
-        
-        ofile.write(f'@{title}\n')
-        ofile.write('-------------------------\n')
+    ofile.write('\n\n')
 
-        if len(arr) > 1 : 
-            for ii in range(len(name_arr)) : 
-                ofile.write('%s = %.3e %s\n' 
-                % (name_arr[ii],arr[ii],unit_arr[ii]))
-        
-        # Exception handling (ex: arr_pump)
-        else : 
-            ofile.write('%s = %.3e %s\n' 
-                % (name_arr[0],arr[0],unit_arr[0]))
-
-        ofile.write('-------------------------\n')
-        ofile.write('\n\n')
-
-        return 0
-
-    # write user's computer informations
-    def write_user_infos() : 
-
-        # print current day and time 
-        from datetime import datetime
-        ofile.write('@date : %s\n\n' % datetime.now())
-
-        # print computer's infos
-        import platform
-        uname = platform.uname()
-        ofile.write('@System: %s\n' % uname.system)
-        ofile.write('@Computer name: %s\n' % uname.node)
-        ofile.write('@Release: %s\n' % uname.release)
-        ofile.write('@Version: %s\n' % uname.version)
-        ofile.write('@Machine: %s\n' % uname.machine)
-        ofile.write('@Processor: %s\n' % uname.processor)
-
-        return 0
-
-
+    write_user_infos(ofile)
 
     ofile.write('\n\n')
 
-    write_user_infos()
-
-    ofile.write('\n\n')
-
-    write_params('molecule parameters',name_arr_mol,arr_mol,unit_arr_mol)
-    write_params('sample parameters',name_arr_sample,arr_sample,unit_arr_sample)
-    write_params('rates parameters',name_arr_rates,arr_rates,unit_arr_rates)
-    if bool_laser : write_params('cavity parameters',name_arr_struct,arr_struct,unit_arr_struct)
-    write_params('pump parameters',name_arr_pump,arr_pump,unit_arr_pump)
+    write_params(ofile,'molecule parameters',name_arr_mol,arr_mol,unit_arr_mol)
+    write_params(ofile,'sample parameters',name_arr_sample,arr_sample,unit_arr_sample)
+    write_params(ofile,'rates parameters',name_arr_rates,arr_rates,unit_arr_rates)
+    if bool_laser : write_params(ofile,'cavity parameters',name_arr_struct,arr_struct,unit_arr_struct)
+    write_params(ofile,'pump parameters',name_arr_pump,arr_pump,unit_arr_pump)
 
 
 
