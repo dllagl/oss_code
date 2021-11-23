@@ -75,11 +75,8 @@ if (user_sys_choice==3) or (user_sys_choice==4) :
     # ex : kisc = [1e2 to 1e10]
     elif user_simu_choice == 3 : 
         
-        # idx     = uc.choose_param_laser()
-        # idx_arr = uc.choose_param_lasing_regime()
-        idx = 21
-        import numpy as np 
-        idx_arr = np.array([1e2, 2e3])
+        idx     = uc.choose_param_laser()
+        idx_arr = uc.choose_param_lasing_regime()
 
         # S0/S1/I
         if user_sys_choice == 3 : 
