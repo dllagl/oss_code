@@ -1,6 +1,6 @@
 # OSS : Organic Systems Simulator
 
-Terminal based application to study the energy state population dynamics of organic lasing devices.
+Terminal based application to study the energy state population dynamics of organic semiconductor lasers.
 
 ## Tables of contents
 1. [Introduction](#introduction)
@@ -14,15 +14,15 @@ Terminal based application to study the energy state population dynamics of orga
 
 
 ## Introduction 
-The OSS code can be used to simulate the dynamics of the energy states populations of organic molecules. Thanks to its relative simplicity, it can also easily be used to study the evolution of the photon density inside a resonator, from DFBs to VCSELs.
-Moreover, an original algorithm is implemented to evaluate the lasing regime (none, pulse, CW) in a given photophysical and optical configuration. 
+The OSS code can be used to simulate the dynamics of the energy states populations of organic molecules. Thanks to its relative simplicity, it can also easily be used to study the evolution of the photon density inside a resonator.
+Moreover, an algorithm is implemented to evaluate the lasing regime in precise photophysical and optical configurations. 
 
 The details concerning the core of the equations and the different algorithms used in OSS are extensively discussed in the [white sheet](doc/whitesheet.pdf) of the project and in the cited [published papers](#useful-ressources).
 
 The project folder is structured as follows:
-- Python scripts : contain the source code of the project
-- Refs : example of the output datas processed by the program for each available simulation.
-- Doc : whitesheet of the project and scientifics references to look over.
+- src : python scripts to run the proram
+- refs : example of the output datas processed by the program for each available simulation.
+- doc : whitesheet of the project and scientifics references to look over.
 
 ## Copyright and license
 The OSS project is licensed under the GNU General Public License version 3. The details of this license can be found in the file `LICENSE.md`.
@@ -30,7 +30,7 @@ The OSS project is licensed under the GNU General Public License version 3. The 
 
 ## Recommended tools
 
-- [Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git) 
+- Git
 - A text editor (e.g. [VS code](https://code.visualstudio.com/)) or a Python IDE (e.g. [Spyder](https://www.spyder-ide.org/))
 
 ## Required modules
@@ -41,7 +41,7 @@ The OSS project is licensed under the GNU General Public License version 3. The 
 - platform >= 2.0.2
 - os 
 
-NOTE : If you use an integrated developement environement such as Spyder, you should not be concerned by the lake of libraries on your computer. 
+NOTE : If you use an integrated developement environement, you should not be concerned by the lake of libraries on your computer. 
 
 Although basic modules are pre-installed in most Linux distributions or in MacOS, specific ones sometimes require manual installation.
 To check if the module `example` is installed on your computer, run the following command on a terminal:
@@ -98,8 +98,8 @@ python main.py
 ```
 
 This will automatically create a folder name after what you enter in the terminal prompt (`output` by default) which will contain : 
--  `data.out` which contain the output datas (time, populations ..)
-- `data.params` which contain the configuration of the simulation (date, computer's infos and contants)
+-  `data.out` which contains the output datas (time, populations ..)
+- `data.params` which contains the configuration of the simulation (date, computer's infos and contants)
 
 Examples of those files can be found in the [refs](refs) folder for each available simulation.
 
@@ -111,8 +111,8 @@ with the code is when changing the initial inputs in the [imp_param.py](imp_para
 
 ### 3. Read the output files 
 
-Python scripts can be found alongside examples data files to guide the Python beginners to plot the results of their simulations. 
-Moreover, datas are written in text files so they can be processed in any language.
+Python scripts can be found alongside examples data files to guide Python beginners to plot the results of their simulations. 
+Since datas are written in text files, they can be processed in any language anyway.
 
 
 ## Useful ressources
