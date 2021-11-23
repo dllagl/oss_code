@@ -36,7 +36,6 @@ def sys_equations_two_pop(s, t, doping, param_vec) :
     sdot[0] = ( 
             ( - sigma_abs_p * lambda_abs * Ip * s[0] / cs.C_HC )
             + ( s[1] / tau_f ) 
-            + ( kSSA * s[1] * s[1] )
             + ( s[1] * sigma_em * s[2] * lambda_fluo / cs.C_HC )
     )
 
@@ -44,7 +43,6 @@ def sys_equations_two_pop(s, t, doping, param_vec) :
     sdot[1] = (
             (sigma_abs_p * lambda_abs * Ip * s[0]) / cs.C_HC
             - ( s[1] * (1/tau_f) )
-            - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
             - ( s[1] * sigma_em * s[2] * lambda_fluo / cs.C_HC )
     )
 
