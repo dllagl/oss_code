@@ -62,11 +62,11 @@ def find_pulse_duration(time, intensity) :
 
 
 
-def write_guidelines(ofile) :
+def write_guidelines_three_pop(ofile) :
 
     ofile.write(
 '''
-########### guidelines ###########
+----------- guidelines -----------
 
 column 1: value of the variable parameter
 column 2: lasing regime 
@@ -75,8 +75,23 @@ column 2: lasing regime
     - pulse lasing : pulse duration (s)
     - integration time too small to decide : 2e4
 
-##################################
+----------------------------------
 '''
     )
     return 0
 
+def write_guidelines_two_pop(ofile) :
+
+    ofile.write(
+'''
+----------- guidelines -----------
+
+column 1: value of the variable parameter
+column 2: lasing regime 
+    - no lasing    : 0
+    - cw lasing    : 3e4
+
+----------------------------------
+'''
+    )
+    return 0

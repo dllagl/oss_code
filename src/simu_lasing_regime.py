@@ -12,8 +12,7 @@ import user_choice as uc
 import phys_constants as cs 
 import simu_lasing_regime_solver as sv 
 import output_file_config as of 
-
-from simu_lasing_regime_fct import write_guidelines 
+import simu_lasing_regime_fct as fct  
 
 
 # three level (S0/S1/T1 + intensity)
@@ -74,7 +73,7 @@ def simu_lasing_regime_three_pop(var_idx, var_arr) :
     ofile.write('@config file : %s\n\n' % config_file_path)
     
     ofile.write('\n\n')
-    write_guidelines(ofile)
+    fct.write_guidelines_three_pop(ofile)
     ofile.write('\n\n')
 
     
@@ -218,7 +217,7 @@ def simu_lasing_regime_two_pop(var_idx, var_arr) :
     ofile = open(output_file_path, 'a+')
     
     ofile.write('\n\n')
-    write_guidelines(ofile)
+    fct.write_guidelines_two_pop(ofile)
     ofile.write('\n\n')
 
     

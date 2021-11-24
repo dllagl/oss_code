@@ -1,7 +1,6 @@
 
 
 # external libraries
-from typing import Counter
 import numpy as np
 
 # external files 
