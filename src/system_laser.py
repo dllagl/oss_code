@@ -16,7 +16,7 @@ Called in: simu_laser.py, simu_lasing_regime.py
 
 
 # external libraries
-import numpy as np 
+from numpy import empty
 
 # external files 
 import phys_constants as cs
@@ -41,7 +41,7 @@ def sys_equations_two_pop(s, t, doping, param_vec) :
 
     
     # vector of the solution
-    sdot = np.empty((3,))   
+    sdot = empty((3,))   
 
 
     ########################################################
@@ -100,7 +100,7 @@ def sys_equations_three_pop(s, t, doping, param_vec) :
 
 
     # vector of the solution
-    sdot = np.empty((4,))   
+    sdot = empty((4,))   
 
 
     ########################################################

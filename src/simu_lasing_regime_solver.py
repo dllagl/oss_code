@@ -12,7 +12,7 @@ Called in: simu_lasing_regime.py
 '''
 
 # external libraries
-import numpy as np
+from numpy import linspace,abs
 
 # external files 
 import simu_lasing_regime_fct as fct 
@@ -50,7 +50,7 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
 
     time_osc     = 20e-9
     nbr_pts_osc  = 1e4
-    time_vec_osc = np.linspace(0,time_osc,int(nbr_pts_osc))
+    time_vec_osc = linspace(0,time_osc,int(nbr_pts_osc))
 
 
     # integrating the ODE system with odeint
@@ -86,7 +86,7 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
         # define time vector iteration
         tmin     = ii*time_unit + time_osc
         tmax     = (ii+1)*time_unit + time_osc
-        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
+        time_vec = linspace(tmin,tmax,int(nbr_pts))
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping,
@@ -105,7 +105,7 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
         int_norm = sol[:,3] / laser_sat
 
         diff_threshold = 1e-5
-        diff = np.abs(int_norm[-1] - int_norm[0])
+        diff = abs(int_norm[-1] - int_norm[0])
 
         # only fluorescence remains -> have to search 
         # the duration of the lasing pulse 
@@ -182,7 +182,7 @@ def solver_two_pop(method,sys,initial_pop,tmin,tmax,doping,
 
     time_osc     = 20e-9
     nbr_pts_osc  = 1e4
-    time_vec_osc = np.linspace(0,time_osc,int(nbr_pts_osc))
+    time_vec_osc = linspace(0,time_osc,int(nbr_pts_osc))
 
 
     # integrating the ODE system with odeint
@@ -218,7 +218,7 @@ def solver_two_pop(method,sys,initial_pop,tmin,tmax,doping,
         # define time vector iteration
         tmin     = ii*time_unit + time_osc
         tmax     = (ii+1)*time_unit + time_osc
-        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
+        time_vec = linspace(tmin,tmax,int(nbr_pts))
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping,

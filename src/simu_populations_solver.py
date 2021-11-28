@@ -11,7 +11,7 @@ Called in: simu_populations.py
 '''
 
 # external libraries
-import numpy as np
+from numpy import linspace
 
 
 def solver(method,sys,initial_pop,tmin,tmax,doping,
@@ -50,7 +50,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,
         # define time vector iteration
         tmin     = ii*time_unit
         tmax     = (ii+1)*time_unit
-        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
+        time_vec = linspace(tmin,tmax,int(nbr_pts))
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping,

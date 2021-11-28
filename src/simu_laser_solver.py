@@ -11,7 +11,7 @@ Called in: simu_laser.py
 '''
 
 # external libraries
-import numpy as np
+from numpy import linspace
 
 
 def solver(method,sys,initial_pop,tmin,tmax,doping,
@@ -55,7 +55,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,
     # (require more points for ~20ns)
     time_osc     = 20e-9
     nbr_pts_osc  = 1e4
-    time_vec_osc = np.linspace(0,time_osc,int(nbr_pts_osc))
+    time_vec_osc = linspace(0,time_osc,int(nbr_pts_osc))
 
     sol = method(sys,initial_pop,time_vec_osc, args=(doping,
         param_arr)
@@ -100,7 +100,7 @@ def solver(method,sys,initial_pop,tmin,tmax,doping,
         # define time vector iteration
         tmin     = ii*time_unit + time_osc
         tmax     = (ii+1)*time_unit + time_osc
-        time_vec = np.linspace(tmin,tmax,int(nbr_pts))
+        time_vec = linspace(tmin,tmax,int(nbr_pts))
 
         # integrating the ODE system with odeint
         sol = method(sys,initial_pop,time_vec, args=(doping,

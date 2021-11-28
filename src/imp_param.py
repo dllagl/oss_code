@@ -19,7 +19,7 @@ Called in: simu_populations.py,simu_laser.py,simu_lasing_regime.py
 
 
 # external libraries
-import numpy as np 
+from numpy import log 
 
 # external files 
 import phys_constants as cs
@@ -92,7 +92,7 @@ def param_sample(molar_mass) :
     nbr_active_mol  = (doping*rho_matrix* cs.C_AVO) / molar_mass
     absorption      = 0.8
     thickness       = 200e-9
-    alpha           = - np.log(1-absorption) / thickness
+    alpha           = - log(1-absorption) / thickness
     sigma_abs_pump  = alpha/nbr_active_mol
     neff            = 1.7
 
