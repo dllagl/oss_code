@@ -1,16 +1,33 @@
 '''
+-------------------------------------------------------------------
+This file is part of the OSS source code 
+Copyright (C) 2021 Anthony Dall'agnol 
+
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or 
+any later version. 
+This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+GNU General Public License for more details. 
+You should have received a copy of the GNU General Public License 
+along with this program. If not, see <https://www.gnu.org/licenses/>
+-------------------------------------------------------------------
+
 @author    : Anthony Dall'agnol
 @copyright : Copyright (C) 2021 Anthony Dall'agnol
 @license   : GNU General Public License
 
--------
+-------------------------------------------------------------------
 Related to plotting data right after integration
 
-@plot_setup : setup of the figure 
-@plot_multiple_params : plot curves for each value of the chosen parameter
+@plot_setup  : setup of the figure 
+@plot_multiple_params : plot curves for each value of the chosen 
+parameter
 
 Called in: main.py
--------
+-------------------------------------------------------------------
 '''
 
 # external libraries 

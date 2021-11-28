@@ -1,9 +1,25 @@
 '''
+-------------------------------------------------------------------
+This file is part of the OSS source code 
+Copyright (C) 2021 Anthony Dall'agnol 
+
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or 
+any later version. 
+This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+GNU General Public License for more details. 
+You should have received a copy of the GNU General Public License 
+along with this program. If not, see <https://www.gnu.org/licenses/>
+-------------------------------------------------------------------
+
 @author    : Anthony Dall'agnol
 @copyright : Copyright (C) 2021 Anthony Dall'agnol
 @license   : GNU General Public License
 
--------
+-------------------------------------------------------------------
 Related to the terminal interface where user has to 
 choose something 
 
@@ -24,7 +40,7 @@ choose something
 @plot_three_laser : choice of variable to plot between S0/S1/T1/I
 
 Called in: main.py,simu_populations.py,simu_laser.py,simu_lasing_regime.py
--------
+-------------------------------------------------------------------
 '''
 
 
