@@ -4,7 +4,7 @@ Terminal based application to study the energy state population dynamics of orga
 
 ## Tables of contents
 1. [Introduction](#introduction)
-2. [Copyright and license](#copyright-and--license)
+2. [Copyright and license](#copyright-and-license)
 3. [Recommended tools](#recommended-tools)
 4. [Required modules](#required-modules)
 5. [Install missing libraries](#install-missing-libraries)
