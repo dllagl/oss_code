@@ -11,6 +11,7 @@ Terminal based application to study the energy state population dynamics of orga
 6. [Obtain the source code](#Obtain-the-source-code)
 7. [Run simulations](#run-simulations) 
 8. [Useful ressources](#useful-ressources)
+9. [Roadmap](#roadmap)
 
 
 ## Introduction 
@@ -133,3 +134,13 @@ sushima and C. Adachi, Journal of Applied Physics, 2019, 126, 185501.
 <!-- In order to help new users to get the most out of OSS, a few videos have been recorded.
 - Windows :
 - UNIX :  -->
+
+
+
+## Roadmap 
+
+- [ ] Write complete documentation 
+- [ ] Tutorial videos
+- [ ] Parallelize lasing regime computation 
+- [ ] Add an option to iterate over two variables at once for the lasing regime study
+- [ ] Add different cavities    
