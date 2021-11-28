@@ -46,6 +46,10 @@ def welcome() :
 
 -------------------------------------------
 
+Copyright (C) 2021 Anthony Dall'agnol
+GNU General Public License
+This program comes with ABSOLUTELY NO WARRANTY
+
     ''')
     return 0
 
