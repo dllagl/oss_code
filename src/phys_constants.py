@@ -1,4 +1,15 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Physical constants
+
+Called in: 
+    - to do .py
+-------
+'''
 
 # general physical constants used in the differents files
 

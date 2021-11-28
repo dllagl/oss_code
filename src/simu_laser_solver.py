@@ -1,4 +1,14 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+@solver : integrate the ODE systems defined in @system_laser.py
+
+Called in: simu_laser.py
+-------
+'''
 
 # external libraries
 import numpy as np
@@ -7,6 +17,22 @@ import numpy as np
 def solver(method,sys,initial_pop,tmin,tmax,doping,
     param_arr,laser_sat,output_file,config_file,user_sys_choice,
     time_counter,time_unit,nbr_pts) :
+
+    '''
+    method          : solver (e.g. odeint)
+    sys             : system of equation
+    initial_pop     : <array> initial values of the population
+    tmin, tmax      : <float> start/end time of integration
+    doping          : <float> proportion of active molecule in the film
+    param_arr       : <array> constants of the equation (@imp_param.py)
+    laser_sat       : <float> saturation of the transition at lasing wavelength
+    output_file     : <str>   output data file 
+    config_file     : <str>   output config file 
+    user_sys_choice : <int>   see @main.py
+    time_counter    : <int>   number of time step from tmin to tmax
+    time_unit       : <float> duration of one integration step
+    nbr_pts         : <int>   number of points per time_unit
+    '''
 
     ofile = open(output_file,'a+')
     ofile.write('\n\n')

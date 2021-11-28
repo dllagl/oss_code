@@ -1,4 +1,15 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+@solver_three_pop : integrate ODE systems S0/S1/T1
+@solver_two_pop   : integrate ODE systems S0/S1
+
+Called in: simu_lasing_regime.py
+-------
+'''
 
 # external libraries
 import numpy as np
@@ -13,6 +24,20 @@ import simu_lasing_regime_fct as fct
 def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
     param_arr,laser_sat,ofile,
     time_counter,time_unit,nbr_pts,var) :
+
+    '''
+    method          : solver (e.g. odeint)
+    sys             : system of equation
+    initial_pop     : <array> initial values of the population
+    tmin, tmax      : <float> start/end time of integration
+    doping          : <float> proportion of active molecule in the film
+    param_arr       : <array> constants of the equation (@imp_param.py)
+    laser_sat       : <float> saturation of the transition at lasing wavelength
+    ofile           : <str>   opened output data file 
+    time_counter    : <int>   number of time step from tmin to tmax
+    time_unit       : <float> duration of one integration step
+    nbr_pts         : <int>   number of points per time_unit
+    '''
 
     # if I/Isat <= lasing_criteria : lasing is gone
     # only fluorescence remains
@@ -131,6 +156,20 @@ def solver_three_pop(method,sys,initial_pop,tmin,tmax,doping,
 def solver_two_pop(method,sys,initial_pop,tmin,tmax,doping,
     param_arr,laser_sat,ofile,
     time_counter,time_unit,nbr_pts,var) :
+
+    '''
+    method          : solver (e.g. odeint)
+    sys             : system of equation
+    initial_pop     : <array> initial values of the population
+    tmin, tmax      : <float> start/end time of integration
+    doping          : <float> proportion of active molecule in the film
+    param_arr       : <array> constants of the equation (@imp_param.py)
+    laser_sat       : <float> saturation of the transition at lasing wavelength
+    ofile           : <str>   opened output data file 
+    time_counter    : <int>   number of time step from tmin to tmax
+    time_unit       : <float> duration of one integration step
+    nbr_pts         : <int>   number of points per time_unit
+    '''
 
     # if I/Isat <= lasing_criteria : lasing is gone
     # only fluorescence remains

@@ -1,6 +1,10 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
+'''
 
-
-
+# external files 
 import user_interface as ui
 import user_choice as uc
 import simu_populations as spop

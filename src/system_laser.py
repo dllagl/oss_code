@@ -1,4 +1,18 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Systems of equations of different configuration
+
+@sys_equations_two_pop   : S0/S1 + intensity
+@sys_equations_three_pop : S0/S1/T1 + intensity
+
+
+Called in: simu_laser.py, simu_lasing_regime.py
+-------
+'''
 
 
 # external libraries

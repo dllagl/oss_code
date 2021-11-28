@@ -1,4 +1,21 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Optical and photophysical constants of ODE systems
+
+@param_molecule  : intrinsic constants of the molecule
+@param_samples   : constants that depend on the film
+@param_rates     : annihilation process rates 
+@param_resonator : optical constants of the cavity
+@param_pump      : pump parameters
+@param_time      : start/end time of integration
+
+Called in: simu_populations.py,simu_laser.py,simu_lasing_regime.py
+-------
+'''
 
 
 # external libraries

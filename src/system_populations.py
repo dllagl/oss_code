@@ -1,4 +1,18 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Systems of equations of different configuration
+
+@sys_equations_two_pop   : S0/S1
+@sys_equations_three_pop : S0/S1/T1
+
+
+Called in: simu_populations.py
+-------
+'''
 
 
 # external libraries

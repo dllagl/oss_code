@@ -1,3 +1,19 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
+
+-------
+@simu_fixed_params : integrate ODE systems defined in <system_laser.py>
+from tmin to tmax for one set of parameters imported from <imp_param.py>
+
+@simu_multiple_params : integrate ODE systems defined in <system_laser.py>
+for multiple value of one parameter which the user choose in the terminal
+
+Called in: main.py
+-------
+'''
+
 # external libraries 
 from scipy.integrate import odeint
 
@@ -14,6 +30,10 @@ import phys_constants as cs
 
 # simulations for one set of parameters
 def simu_fixed_params(user_sys_choice) : 
+
+    '''
+    user_sys_choice : <int> define the ODE system
+    '''
 
     # lasing is considered in this config
     _is_laser = True
@@ -115,6 +135,12 @@ def simu_fixed_params(user_sys_choice) :
 # simulations for multiple sets of parameters
 def simu_multiple_params(user_sys_choice, var_idx, var_arr) : 
 
+    '''
+    user_sys_choice : <int> define ODE system
+    var_idx         : <int> chosen parameter to iterate on
+    var_arr         : <array> different values for var_idx
+    '''
+
     # lasing is considered in this config
     _is_laser = True
     
@@ -144,7 +170,7 @@ def simu_multiple_params(user_sys_choice, var_idx, var_arr) :
     time_step_unit    = 1e-6  # time block of 1 us
     nbr_pts_per_step  = 4e3   # 4000 pts per us
 
-    # integration time smaller that time step handling 
+    # Exception handling : integration time smaller that time step 
     if tmax < time_step_unit : time_step_unit = tmax
 
     time_step_counter = int(tmax/time_step_unit)

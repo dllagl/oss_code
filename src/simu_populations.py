@@ -1,5 +1,18 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+@simu_fixed_params : integrate ODE systems defined in <system_laser.py>
+from tmin to tmax for one set of parameters imported from <imp_param.py>
 
+@simu_multiple_params : integrate ODE systems defined in <system_laser.py>
+for multiple value of one parameter which the user choose in the terminal
+
+Called in: main.py
+-------
+'''
 
 
 # external libraries 
@@ -17,6 +30,10 @@ import user_choice as uc
 
 # simulations for one set of parameters
 def simu_fixed_params(user_sys_choice) : 
+
+    '''
+    user_sys_choice : <int> define the ODE system
+    '''
 
     # no lasing equation in this config
     _is_laser = False
@@ -113,6 +130,12 @@ def simu_fixed_params(user_sys_choice) :
 
 
 def simu_multiple_params(user_sys_choice, var_idx, var_arr) : 
+
+    '''
+    user_sys_choice : <int> define ODE system
+    var_idx         : <int> chosen parameter to iterate on
+    var_arr         : <array> different values for var_idx
+    '''
 
     # no lasing in this config
     _is_laser = False

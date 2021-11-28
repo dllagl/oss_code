@@ -1,4 +1,14 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Related to interface message and files creation/deletion
+
+Called in: main.py,simu_populations.py,simu_laser.py,simu_lasing_regime.py
+-------
+'''
 
 import os 
 
@@ -56,11 +66,6 @@ def simulation_start() :
 def simulation_finished() : 
     print_something('Computation has finished.')
     return 0
-
-
-
-
-
 
 
 

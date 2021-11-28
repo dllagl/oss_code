@@ -1,4 +1,19 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Integrate ODE systems for a large range of values of one 
+parameter (chosen by user) to study the evolution of the 
+lasing regime 
+
+@simu_lasing_regime_three_pop : integrate ODE systems S0/S1/T1
+@simu_lasing_regime_two_pop   : integrate ODE systems S0/S1
+
+Called in: main.py
+-------
+'''
 
 # external librairies 
 from scipy.integrate import odeint
@@ -17,6 +32,11 @@ import simu_lasing_regime_fct as fct
 
 # three level (S0/S1/T1 + intensity)
 def simu_lasing_regime_three_pop(var_idx, var_arr) : 
+
+    '''
+    var_idx         : <int> chosen parameter to iterate on
+    var_arr         : <array> different values for var_idx
+    '''
 
     # lasing is considered in this config
     _is_laser = True
@@ -157,6 +177,11 @@ def simu_lasing_regime_three_pop(var_idx, var_arr) :
 # three level (S0/S1 + intensity)
 def simu_lasing_regime_two_pop(var_idx, var_arr) : 
 
+    '''
+    var_idx         : <int> chosen parameter to iterate on
+    var_arr         : <array> different values for var_idx
+    '''
+    
     # lasing is considered in this config
     _is_laser = True
     

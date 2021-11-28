@@ -1,3 +1,17 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
+
+-------
+Related to plotting data right after integration
+
+@plot_setup : setup of the figure 
+@plot_multiple_params : plot curves for each value of the chosen parameter
+
+Called in: main.py
+-------
+'''
 
 # external libraries 
 import matplotlib.pyplot as plt 

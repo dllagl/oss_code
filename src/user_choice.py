@@ -1,4 +1,31 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Related to the terminal interface where user has to 
+choose something 
+
+@user_type_choice     : type of simulations 
+@output_folder_choice : name of folder for output files
+@output_file_choice   : name of output data file
+@config_file          : build config file based on output_file_choice
+
+@choose_param_populations   : choice of parameter to iterate (no resonator)
+@choose_param_laser         : choice of parameter to iterate with resonator
+@choose_param_values        : choice of different values of the chosen parameter
+@choose_param_lasing_regime : min and max values of the chosen parameter for lasing regime simu
+
+@ask_plot         : do you want to plot right away ? 
+@plot_two_pop     : choice of variable to plot between S0/S1
+@plot_three_pop   : choice of variable to plot between S0/S1/T1
+@plot_two_laser   : choice of variable to plot between S0/S1/I
+@plot_three_laser : choice of variable to plot between S0/S1/T1/I
+
+Called in: main.py,simu_populations.py,simu_laser.py,simu_lasing_regime.py
+-------
+'''
 
 
 

@@ -1,3 +1,21 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
+
+-------
+@write_cw        : write on file that CW is reached + value of parameter
+@write_pulse     : write on file the pulse duration + value of parameter
+@write_no_lasing : write on file no lasing + value of parameter
+@write_error     : write on file that an error occured
+@write_undefined : write on file that regime is undefined
+
+@find_pulse_duration : find the duration of the lasing pulse
+@write_guidelines    : write on file tutorial to read the data
+
+Called in: simu_lasing_regime.py, simu_lasing_regime_solver.py
+-------
+'''
 
 
 # external libraries 
@@ -10,8 +28,19 @@ from numpy import array, amin, diff, where, log
 #---------------------------------------------------#
 #---------------------------------------------------#
 
-# write lasing regime on output file for each value 
-# of the adjustable parameter
+
+'''
+write lasing regime on output file for each value of 
+the adjustable parameter (chosen by user)
+
+To ease the process of data, regimes are written
+in integer. 
+CW        = 3e4
+no lasing = 0 
+error     = 1e4
+undefined = 2e4
+
+'''
 
 
 def write_cw(ofile,var) : 

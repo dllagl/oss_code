@@ -1,4 +1,13 @@
+'''
+@author    : Anthony Dall'agnol
+@copyright : Copyright (C) 2021 Anthony Dall'agnol
+@license   : GNU General Public License
 
+-------
+Related to the config file informations 
+
+Called in: simu_populations.py,simu_laser.py,simu_lasing_regime.py
+'''
 
 
 # molecule name/unit array
