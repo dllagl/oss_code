@@ -14,7 +14,7 @@ Terminal based application to study the energy state population dynamics of orga
 
 
 ## Introduction 
-The OSS code can be used to simulate the dynamics of the energy states populations of organic molecules. Thanks to its relative simplicity, it can also easily be used to study the evolution of the photon density inside a resonator.
+The OSS code can be used to simulate the dynamics of the energy states populations of organic molecules in thin films. The populations can be integrated with or without a resonator via an equation governing the photon density inside it.
 Moreover, an algorithm is implemented to evaluate the lasing regime in precise photophysical and optical configurations. 
 
 The details concerning the core of the equations and the different algorithms used in OSS are extensively discussed in the [white sheet](doc/whitesheet.pdf) of the project and in the cited [published papers](#useful-ressources).
@@ -22,7 +22,7 @@ The details concerning the core of the equations and the different algorithms us
 The project folder is structured as follows:
 - src : python scripts to run the proram
 - refs : example of the output datas processed by the program for each available simulation.
-- doc : whitesheet of the project and scientifics references to look over.
+- doc : whitesheet of the project and scientifics references to look over. (not published yet)
 
 ## Copyright and license
 The OSS project is licensed under the GNU General Public License version 3. The details of this license can be found in the file `LICENSE.md`.
@@ -84,7 +84,7 @@ pip freeze | grep <example>
 You can download it on the main page or clone it via the following commands. This will automatically create a folder `oss` containing each files and folders of the project.
 ```bash 
 cd path/to/your/work/folder
-git clone https://github.com/dllagl/tui.git
+git clone https://github.com/dllagl/oss.git
 ```
 
 ## Run simulations 
@@ -105,8 +105,8 @@ Examples of those files can be found in the [refs](refs) folder for each availab
 
 ### 2. Run it your way
 
-Other than implementing your own functions and fork the project, the only interation you need to have 
-with the code is when changing the initial inputs in the [imp_param.py](imp_param.py) python file. 
+For the simpliest simulations options, the only interactions you need to have with the code is to change the values of the photophysical and optical constants in [imp_param.py](src/imp_param.py).
+The prompt will guide you for other options.
 
 
 ### 3. Read the output files 
