@@ -42,15 +42,13 @@ import user_choice as uc
 
 def plot_setup(data_arr, idx, ylabel) :
 
-    # tex syntax enabled
-    plt.rc('text',usetex = True)
 
     font_size = 20
     tick_size = 15
     plt.plot(data_arr[:,0]*1e6, data_arr[:,int(idx)]) 
     plt.yscale('log')
     plt.xscale('linear')
-    plt.xlabel('$\\rm Time \\ (\\mu s)$', fontsize = font_size)
+    plt.xlabel('Time (us)', fontsize = font_size)
     plt.ylabel(ylabel, fontsize = font_size)
     plt.yticks(fontsize = tick_size)
     plt.xticks(fontsize = tick_size)
@@ -93,12 +91,12 @@ def main_plot_fixed_params(sys,file) :
 
         # S0/S1
         if (nbr_cols == 3) : 
-            str_arr = ['$S_0/N$', '$S_1/N$']
+            str_arr = ['S0/N', 'S1/N']
             idx = uc.plot_two_pop()
             plot_setup(data,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$']
+            str_arr = ['S0/N', 'S1/N', 'T1/N']
             idx = uc.plot_three_pop()
             plot_setup(data,idx,str_arr[idx-1])
 
@@ -107,12 +105,12 @@ def main_plot_fixed_params(sys,file) :
 
         # S0/S1/I
         if (nbr_cols == 4) : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$I/I_{\\rm sat}$']
+            str_arr = ['S0/N', 'S1/N', 'I/Isat']
             idx = uc.plot_two_laser()
             plot_setup(data,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$', '$I/I_{\\rm sat}$']
+            str_arr = ['S0/N', 'S1/N', 'T1/N', 'I/Isat']
             idx = uc.plot_three_laser()
             plot_setup(data,idx,str_arr[idx-1])
 
@@ -151,12 +149,12 @@ def main_plot_multiple_params(sys,file_name,file_nbr) :
 
         # S0/S1
         if (nbr_cols == 3) : 
-            str_arr = ['$S_0/N$', '$S_1/N$']
+            str_arr = ['S0/N', 'S1/N']
             idx = uc.plot_two_pop()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$']
+            str_arr = ['S0/N', 'S1/N', 'T1/N']
             idx = uc.plot_three_pop()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
@@ -165,12 +163,12 @@ def main_plot_multiple_params(sys,file_name,file_nbr) :
 
         # S0/S1/I
         if (nbr_cols == 4) : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$I/I_{\\rm sat}$']
+            str_arr = ['S0/N', 'S1/N', 'I/Isat']
             idx = uc.plot_two_laser()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
         else : 
-            str_arr = ['$S_0/N$', '$S_1/N$', '$T_1/N$', '$I/I_{\\rm sat}$']
+            str_arr = ['S0/N', 'S1/N', 'T1/N', 'I/Isat']
             idx = uc.plot_three_laser()
             plot_multiple_params(file_name,file_nbr,idx,str_arr[idx-1])
 
