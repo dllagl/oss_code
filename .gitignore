@@ -11,17 +11,4 @@ __pycache__
 *.sh
 /test
 *.todolist
-
-
-# tex file 
-*.log
-*.aux
-*.gz
-*.tex
-*.bib
-*.fls
-*.fdb_latexmk
-*.toc
-
-# images
-/doc/img/*
+/tex/*
