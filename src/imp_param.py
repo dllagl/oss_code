@@ -145,7 +145,7 @@ def param_rates(nbr_dye_molecules) :
 
     kisc = 1e8
     ksta = 1e-10 * 1e-6 * nbr_dye_molecules
-    ktta = 0.0 * 1e-6 * nbr_dye_molecules
+    ktta = 1e-13 * 1e-6 * nbr_dye_molecules
     kssa = 0.0 * 1e-6 * nbr_dye_molecules
 
 

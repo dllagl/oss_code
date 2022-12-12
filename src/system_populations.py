@@ -124,7 +124,7 @@ def sys_equations_three_pop(s, t, doping, param_vec) :
             (sigma_abs_p * lambda_abs * Ip * s[0]) / cs.C_HC
             - ( s[1] * (1/tau_f + kISC) )
             - ( kSTA * s[1] * s[2] ) 
-            + ( cs.C_ZETA * kTTA * s[2] * s[2] )
+            + (cs.C_ZETA * kTTA * s[2] * s[2] )
             - ( kSSA * s[1] * s[1] * (2- cs.C_ZETA) )
             - ( sigma_S1S2_pump * (1-kSI) * lambda_abs * Ip * s[1] / cs.C_HC )
     )
